@@ -87,7 +87,6 @@
   background-repeat: no-repeat
   background-size: cover
   background-position: center
-  padding-top: 200px
   .fp-tableCell
     vertical-align: top
   .container
@@ -95,6 +94,7 @@
     justify-content: space-between
     align-items: flex-start
     position: relative
+    padding-top: 200px
     &::after
       position: absolute
       content: ''
@@ -104,7 +104,7 @@
       height: 90px
       width: 150px
       background-size: contain
-      top: 40px
+      top: 240px
       left: calc(50% - 8px)
       transform: translateX(-50%)
   &-left
@@ -151,6 +151,10 @@
     justify-content: space-between
     &-item
       width: calc(25% - 10px)
+      cursor: pointer
+      &:hover
+        h3
+          color: $hover
       .date
         color: $accent
       img

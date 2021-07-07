@@ -148,7 +148,6 @@
   -webkit-background-size: cover;
           background-size: cover;
   background-position: center;
-  padding-top: 200px;
 }
 
 .about .fp-tableCell {
@@ -169,6 +168,7 @@
       -ms-flex-align: start;
           align-items: flex-start;
   position: relative;
+  padding-top: 200px;
 }
 
 .about .container::after {
@@ -181,7 +181,7 @@
   width: 150px;
   -webkit-background-size: contain;
           background-size: contain;
-  top: 40px;
+  top: 240px;
   left: -webkit-calc(50% - 8px);
   left: calc(50% - 8px);
   -webkit-transform: translateX(-50%);
@@ -270,6 +270,11 @@
 .news-wrap-item {
   width: -webkit-calc(25% - 10px);
   width: calc(25% - 10px);
+  cursor: pointer;
+}
+
+.news-wrap-item:hover h3 {
+  color: #01548A;
 }
 
 .news-wrap-item .date {
