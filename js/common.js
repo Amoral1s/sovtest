@@ -22,6 +22,7 @@ jQuery(document).ready(function ($) {
   }
 
   const presWrap = document.querySelector('.present-wrap');
+  const presItem = document.querySelectorAll('.present-wrap-item'); 
 
   new fullpage('#fullpage', {
     navigation: true,
@@ -29,6 +30,7 @@ jQuery(document).ready(function ($) {
     anchors: ['home', 'about-us', 'contact'],
     parallax: true,
     onLeave: function(origin, destination, direction){
+      presItem[2].classList.remove('present-wrap-item-active');
        
     },
     afterLoad: function(origin, destination, direction){
@@ -36,25 +38,28 @@ jQuery(document).ready(function ($) {
         console.log(destination.index)
 
         if (destination.index == 2 && !presWrap.classList.contains('slick-slider')) {
-          $('.present-wrap').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: false,
-            arrows: false,
-            autoplay: true,
-            speed: 1000,
-            autoplaySpeed: 2000,
-            infinite: false,
-            rtl: false,
-            focusOnSelect: false,
-            pauseOnFocus: false,
-            fade: true,
-            cssEase: 'linear'
-        }, { once: true });
+         
+        const presItem = document.querySelectorAll('.present-wrap-item'); 
+        presItem[2].classList.remove('present-wrap-item-active');
+
+
+        presItem[0].classList.add('present-wrap-item-active');
+
+        setTimeout(() => {
+        presItem[0].classList.remove('present-wrap-item-active');
+        presItem[1].classList.add('present-wrap-item-active');
+        }, 1500);
+        setTimeout(() => {
+        presItem[1].classList.remove('present-wrap-item-active');
+        presItem[2].classList.add('present-wrap-item-active');
+        }, 4000);
         }
     }
   });
 
+  
+
+  
   new WOW().init();
 
   
