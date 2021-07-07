@@ -1,0 +1,89 @@
+@import 'vars'
+@import 'reset'
+
+.button
+	display: flex
+	justify-content: center
+	align-items: center
+	background-color: $main
+	border-radius: 4px
+	color: $light
+	transition: .2s
+	height: 50px
+	font-size: 20px
+	width: 240px
+	font-weight: 500
+	cursor: pointer
+	&:hover
+		transition: .2s
+		background-color: $hover
+
+.title
+  font-size: 60px
+  margin-bottom: 50px
+  display: block
+  font-weight: 600
+.header
+  background-color: $dark
+  padding-top: 20px
+  padding-bottom: 20px
+  width: 100%
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 50
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &-logo
+    object-fit: contain
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    img
+      display: block
+  &-menu
+    display: flex
+    justify-content: center
+    align-items: center
+    ul
+      display: flex
+      justify-content: center
+      align-items: center
+      li
+        margin: 0 15px
+        a
+          font-size: 20px
+          transition: .2s
+          font-weight: 500
+          &:hover
+            transition: .2s
+            color: $hover
+
+.offer
+  height: 100vh
+  background-image: url(../img/bg-offer.jpg)
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: top
+  padding-top: 200px
+  .container
+    display: flex
+    height: 100%
+    align-items: flex-start
+    flex-direction: column
+    justify-content: fls
+  h1
+    font-size: 140px
+    font-weight: 500
+  p
+    font-size: 34px
+    margin-top: 10px
+
+
+
+@import "header/_media1200"
+@import "header/_media992"
+@import "header/_media768"
+@import "header/_media578"
