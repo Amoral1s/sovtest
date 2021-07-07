@@ -236,23 +236,43 @@
   font-weight: 600;
   width: 100%;
   margin-top: 15px;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+  bottom: -100px;
 }
 
 .about-right-item p {
   font-size: 30px;
   margin-bottom: 50px;
   width: 100%;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  position: relative;
+  bottom: -100px;
 }
 
 .about-right-item img {
   margin-right: 0;
   display: block;
+  -webkit-transition: 1.5s;
+  -o-transition: 1.5s;
+  transition: 1.5s;
+  position: relative;
+  bottom: -100px;
 }
 
 .about-right-item-active {
   -webkit-transition: 1s;
   -o-transition: 1s;
   transition: 1s;
+  opacity: 1;
+}
+
+.about-right-item-active h3, .about-right-item-active p, .about-right-item-active img {
+  bottom: 0;
   opacity: 1;
 }
 

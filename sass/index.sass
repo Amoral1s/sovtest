@@ -134,16 +134,29 @@
         font-weight: 600
         width: 100%
         margin-top: 15px
+        transition: .5s
+        position: relative
+        bottom: -100px
       p
         font-size: 30px
         margin-bottom: 50px
         width: 100%
+        transition: 1s
+        position: relative
+        bottom: -100px
       img
         margin-right: 0
         display: block
+        transition: 1.5s
+        position: relative
+        bottom: -100px
       &-active
         transition: 1s
         opacity: 1
+        h3, p, img
+          bottom: 0
+          opacity: 1
+        
 
 .news
   &-wrap
