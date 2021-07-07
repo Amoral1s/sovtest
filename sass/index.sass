@@ -82,6 +82,88 @@
         opacity: 1
         transform: scale(1)
 
+.about
+  background-image: url(../img/about/1.jpg)
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+  padding-top: 200px
+  .fp-tableCell
+    vertical-align: top
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    position: relative
+    &::after
+      position: absolute
+      content: ''
+      background-image: url(../img/about/bg.png)
+      background-repeat: no-repeat
+      background-position: center
+      height: 90px
+      width: 150px
+      background-size: contain
+      top: 40px
+      left: calc(50% - 8px)
+      transform: translateX(-50%)
+  &-left
+    width: 50%
+    h2
+      font-size: 60px
+      font-weight: 500
+      max-width: 600px
+      text-align: end
+  &-right
+    width: 50%
+    color: $dark
+    position: relative
+    &-item
+      display: flex!important
+      flex-direction: column
+      align-items: flex-end
+      transition: 1s
+      position: absolute
+      height: 100%
+      top: 0
+      left: 140px
+      opacity: 0
+      h3
+        font-size: 46px
+        margin-bottom: 60px
+        font-weight: 600
+        width: 100%
+        margin-top: 15px
+      p
+        font-size: 30px
+        margin-bottom: 50px
+        width: 100%
+      img
+        margin-right: 0
+        display: block
+      &-active
+        transition: 1s
+        opacity: 1
+
+.news
+  &-wrap
+    display: flex
+    justify-content: space-between
+    &-item
+      width: calc(25% - 10px)
+      .date
+        color: $accent
+      img
+        width: 100%
+        object-fit: cover
+        height: 230px
+      h3
+        font-size: 22px
+        margin: 10px 0
+      p
+        color: $light
+        font-size: 18px
+        opacity: .8
 
 
 
