@@ -34,8 +34,9 @@ jQuery(document).ready(function ($) {
     navigation: true,
     scrollBar: true,
     responsiveWidth: 700,
-    /* anchors: ['home', 'about-us', 'contact'], */
+    anchors: ['offer', 'solutions', 'presentation', 'about', 'news', 'brands', 'footer'], 
     parallax: true,
+    normalScrollElements: '.brands, .footer',
     onLeave: function(origin, destination, direction){
       presItem.forEach((elem) => {
         elem.classList.remove('present-wrap-item-active');
