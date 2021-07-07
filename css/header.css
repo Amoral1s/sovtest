@@ -411,7 +411,6 @@ select::after {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
@@ -421,18 +420,17 @@ select::after {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: fls;
-  -webkit-justify-content: fls;
-      -ms-flex-pack: fls;
-          justify-content: fls;
+  overflow: hidden;
 }
 
 .offer h1 {
   font-size: 140px;
   font-weight: 500;
+  overflow: hidden;
 }
 
 .offer p {
   font-size: 34px;
   margin-top: 10px;
+  overflow: hidden;
 }
