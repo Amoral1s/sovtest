@@ -435,3 +435,30 @@ select::after {
   margin-top: 10px;
   overflow: hidden;
 }
+
+@media (max-width: 1370px) {
+  .title {
+    font-size: 44px;
+  }
+  .header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .header .button {
+    font-size: 18px;
+    height: 30px;
+    width: 150px;
+  }
+  .header-menu ul li a {
+    font-size: 16px;
+  }
+  .offer {
+    min-height: 760px;
+  }
+  .offer h1 {
+    font-size: 90px;
+  }
+  .offer p {
+    font-size: 24px;
+  }
+}
