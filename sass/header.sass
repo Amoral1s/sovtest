@@ -1,6 +1,9 @@
 @import 'vars'
 @import 'reset'
 
+
+
+
 .button
 	display: flex
 	justify-content: center
@@ -28,9 +31,6 @@
   padding-top: 20px
   padding-bottom: 20px
   width: 100%
-  position: absolute
-  top: 0
-  left: 0
   z-index: 50
   .container
     display: flex
@@ -61,13 +61,58 @@
             transition: .2s
             color: $hover
 
+.header-menu
+  ul
+    li.menu-item-has-children
+      z-index: 100
+      &>ul
+        position: absolute
+        display: flex
+        background-color: #1E1F27
+        width: 100vw
+        left: -300%
+        top: 89px
+        max-width: auto
+        padding: 40px 170px 40px 170px
+        justify-content: flex-start
+        align-items: flex-start
+        transition: .5s
+        opacity: 0
+        &::after
+          position: absolute
+          content: ''
+          top: -40px
+          left: 0
+          width: 100%
+          height: 40px
+        &>li
+          margin-right: 170px
+          &>a
+            font-size: 24px
+            font-weight: 600
+          &>ul
+            display: block
+            margin-top: 20px
+            li
+              margin: 0 0 20px 0
+              a
+                font-size: 18px
+                font-weight: 400
+                opacity: .8
+
+.menu-active
+  &>ul
+    left: 0!important
+    transition: .5s
+    opacity: 1!important
+
 .offer
   min-height: 940px
   background-image: url(../img/bg-offer.jpg)
   background-repeat: no-repeat
   background-size: cover
   background-position: top
-  padding-top: 200px
+  padding-top: 100px
   padding-bottom: 70px
   .container
     display: flex

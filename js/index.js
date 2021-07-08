@@ -1,4 +1,10 @@
 jQuery(document).ready(function ($) {
+
+  $('li.menu-item-has-children').hover(function(){
+    $(this).addClass('menu-active');
+  }, function(){
+    $(this).removeClass('menu-active');
+  });
   
   const solItem = document.querySelectorAll('.solution-wrap-left-item'),
         solMenu = document.querySelectorAll('.solution-wrap-right-item');
@@ -9,7 +15,6 @@ jQuery(document).ready(function ($) {
     solItemVideo.forEach((elem) => {
       elem.src = elem.dataset.src;
       elem.parentElement.load();
-      elem.parentElement.play();
     });
     solMenu.forEach((elem, i) => {
       elem.addEventListener('click', () => {
