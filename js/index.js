@@ -5,6 +5,19 @@ jQuery(document).ready(function ($) {
   }, function(){
     $(this).removeClass('menu-active');
   });
+
+  $('.call-callback').on('click', function() {
+    $('.overlay').fadeIn(200);
+    $('.popup-callback').fadeIn(200);
+  });
+  $('.close').on('click', function() {
+    $('.overlay').fadeOut(200);
+    $('.popup').fadeOut(200);
+  });
+  $('.overlay').on('click', function() {
+    $('.overlay').fadeOut(200);
+    $('.popup').fadeOut(200);
+  });
   
   const solItem = document.querySelectorAll('.solution-wrap-left-item'),
         solMenu = document.querySelectorAll('.solution-wrap-right-item');
