@@ -397,13 +397,14 @@ select::after {
 }
 
 .offer {
-  height: 100vh;
+  min-height: 940px;
   background-image: url(../img/bg-offer.jpg);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
   background-position: top;
   padding-top: 200px;
+  padding-bottom: 70px;
 }
 
 .offer .container {

@@ -37,43 +37,38 @@
 
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/libs.min.css">
-  <link rel="stylesheet" href="css/fullpage.css">
+  <!-- <link rel="stylesheet" href="css/fullpage.css"> -->
   <link rel="stylesheet" href="css/index.css">
   
 </head>
 <body>
-  
-  <div id="fullpage">
-    <div class="section">
-      <header class="header">
-        <div class="container">
-          <a href="/" class="header-logo"><img src="img/logo.png" alt="Sovtest Telematica"></a>
-          <nav class="header-menu">
-            <ul>
-              <li><a href="#">Продукты</a></li>
-              <li><a href="#">Технология</a></li>
-              <li><a href="#">Поддержка</a></li>
-              <li><a href="#">Новости</a></li>
-              <li><a href="#">О компании</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </nav>
-          <div class="header-btn">
-            <div class="button call-checkout">
-              Заказать
-            </div>
+    <header class="header">
+      <div class="container">
+        <a href="/" class="header-logo"><img src="img/logo.png" alt="Sovtest Telematica"></a>
+        <nav class="header-menu">
+          <ul>
+            <li><a href="#">Продукты</a></li>
+            <li><a href="#">Технология</a></li>
+            <li><a href="#">Поддержка</a></li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </nav>
+        <div class="header-btn">
+          <div class="button call-checkout">
+            Заказать
           </div>
         </div>
-      </header>
-      <section class=" offer">
-        <div class="container">
-          <h1 class="wow animated fadeInUpBig"data-wow-delay=".5s">Sovtest Telematica</h1>
-          <p class="wow animated fadeInUpBig" data-wow-delay=".8s">Современные интеллектуальные технологии</p>
-        </div>
-      </section>
-    </div>
-    <section class="section solution container">
-      
+      </div>
+    </header>
+    <section class="offer">
+      <div class="container">
+        <h1 class="wow animated fadeInUpBig"data-wow-delay="1s">Sovtest Telematica</h1>
+        <p class="wow animated fadeInUpBig" data-wow-delay="1.5s">Современные интеллектуальные технологии</p>
+      </div>
+    </section>
+    <section class=" solution container">
       <div class="solution-wrap">
         <h2 class="title">Выбери свое решение:</h2>
         <div class="solution-wrap-left">
@@ -81,7 +76,6 @@
             <video preload="auto" autoplay="autoplay" loop="loop" muted="" playsinline="playsinline" >         
               <source data-src="img/solutions/ST_Light.mp4" type="video/mp4"> 
               <source data-src="img/solutions/ST_Light.webm" type="video/webm"> 
-
            </video>
             <h3>ST Light — интеллектуальная система управления освещением</h3>
             <p>
@@ -148,9 +142,9 @@
         <!-- /.solution-wrap-right -->
       </div>
     </section>
-    <section class="section present container">
+    <section class=" present container">
       <div class="container present-wrap">
-        <div class="present-wrap-item">
+        <div class="present-wrap-item ">
           <img src="img/present/1.png" alt="">
           <p>STelematicaAPP — управление инфраструктурой из облака или сервера </p>
         </div>
@@ -167,7 +161,7 @@
         <!-- /.present-wrap-item -->
       </div>
     </section>
-    <section class="section about">
+    <section class=" about">
       <div class="container">
         <div class="about-left">
           <h2>Sovtest Telematica это</h2>
@@ -175,60 +169,88 @@
         <!-- /.about-left -->
         <div class="about-right">
           <div class="about-right-item about-right-item-active">
-            <h3>
-              Быстрота и удобство 
-              установки и подключения
-            </h3>
-            <p>
-              Для добавления устройства достаточно включить его и пройти простую процедуру регистрации в системе
-            </p>
-            <img src="img/about/assets/1.svg" alt="">
+            <div>
+              <h3>
+                Быстрота и удобство 
+                установки и подключения
+              </h3>
+            </div>
+            <div>
+              <p>
+                Для добавления устройства достаточно включить его и пройти простую процедуру регистрации в системе
+              </p>
+            </div>
+            <div>
+              <img src="img/about/assets/1.svg" alt="">
+            </div>
           </div>
           <!-- /.about-right-item -->
           <div class="about-right-item">
-            <h3>
-              Экономия
-            </h3>
-            <p>
-              Снижение затрат за использование устройств 
-              до 99% (оконечным устройствам не нужна сим-карта с выходом в интернет)
-            </p>
-            <img src="img/about/assets/2.svg" alt="">
+            <div>
+              <h3>
+                Экономия
+              </h3>
+            </div>
+            <div>
+              <p>
+                Снижение затрат за использование устройств 
+                до 99% (оконечным устройствам не нужна сим-карта с выходом в интернет)
+              </p>
+            </div>
+            <div>
+              <img src="img/about/assets/2.svg" alt="">
+            </div>
           </div>
           <!-- /.about-right-item -->
           <div class="about-right-item">
-            <h3>
-              Огромный выбор устройств
-            </h3>
-            <p>
-              В системе можно использовать любое устройство, работающее по протоколу LoRaWAN.
-              Эмблема LoRaWAN, эмблема «широкого выбора»
-            </p>
-            <img  src="img/about/assets/3.svg" alt="">
+            <div>
+              <h3>
+                Огромный выбор устройств
+              </h3>
+            </div>
+            <div>
+              <p>
+                В системе можно использовать любое устройство, работающее по протоколу LoRaWAN.
+                Эмблема LoRaWAN, эмблема «широкого выбора»
+              </p>
+            </div>
+            <div>
+              <img  src="img/about/assets/3.svg" alt="">
+            </div>
           </div>
           <!-- /.about-right-item -->
           <div class="about-right-item">
-            <p>
-              Использование передовых беспроводных технологий передачи данных для удовлетворения потребностей заказчика.
-            </p>
-            <img src="img/about/assets/4.svg" alt="">
+            <div>
+              <p>
+                Использование передовых беспроводных технологий передачи данных для удовлетворения потребностей заказчика.
+              </p>
+            </div>
+            <div>
+              <img src="img/about/assets/4.svg" alt="">
+            </div>
           </div>
           <!-- /.about-right-item -->
           <div class="about-right-item">
-            <h3>
-              Возможность интеграции стороннего ПО
-            </h3>
-            <p>
-              Программное обеспечение Telematica Server® имеет открытое API, что позволяет спользовать сторонние платформы IIoT/«Умный город»
-            </p>
-            <img  src="img/about/assets/5.svg" alt="">
+            <div>
+              <h3>
+                Возможность интеграции стороннего ПО
+              </h3>
+            </div>
+            <div>
+              <p>
+                Программное обеспечение Telematica Server® имеет открытое API, что позволяет спользовать сторонние платформы IIoT/«Умный город»
+              </p>
+            </div>
+            <div>
+              <img  src="img/about/assets/5.svg" alt="">
+            </div>
           </div>
           <!-- /.about-right-item -->
         </div>
         <!-- /.about-right -->
       </div>
     </section>
-    <section class="section news container">
+    <section class=" news container">
       <h2 class="title">
         Новости
       </h2>
@@ -286,54 +308,53 @@
         </a>
         <!-- /.news-wrap-item -->
       </div>
-      <footer class=" footer">
-        <div class="footer-brands">
-          <img src="img/brands/1.png" alt="">
-          <img src="img/brands/2.png" alt="">
-          <img src="img/brands/3.png" alt="">
-          <img src="img/brands/4.png" alt="">
-          <img src="img/brands/5.png" alt="">
-        </div>
-        <nav class="footer-nav">
-          <a href="/" class="footer-nav-logo">
-            <img src="img/logo.png" alt="">
-          </a>
-          <ul>
-            <li><a href="#">Продукты</a></li>
-            <li><a href="#">Технология</a></li>
-            <li><a href="#">Поддержка</a></li>
-            <li><a href="#">Новости</a></li>
-            <li><a href="#">О компании</a></li>
-            <li><a href="#">Контакты</a></li>
-            <li><a href="#">Политика конфиденциальности</a></li>
-          </ul>
-        </nav>
-        <div class="footer-footer">
-          <div class="adress">
-            <p>ООО «Совтест АТЕ»</p>
-            <p>Россия, Курск</p>
-            <p>улица Карла Маркса, 135</p>
-          </div>
-          <div class="social">
-            <a href="#">
-              <img src="img/icons/fb.svg" alt="">
-            </a>
-            <a href="#">
-              <img src="img/icons/yt.svg" alt="">
-            </a>
-            <a href="#">
-              <img src="img/icons/tw.svg" alt="">
-            </a>
-            <a href="#">
-              <img src="img/icons/ln.svg" alt="">
-            </a>
-          </div>
-          <a href="tel:" class="phone">8 (800) 200-54-17</a>
-        </div>
-      </footer>
+      
     </section>
-    
-  </div>
+    <footer class="container footer">
+      <div class="footer-brands">
+        <img src="img/brands/1.png" alt="">
+        <img src="img/brands/2.png" alt="">
+        <img src="img/brands/3.png" alt="">
+        <img src="img/brands/4.png" alt="">
+        <img src="img/brands/5.png" alt="">
+      </div>
+      <nav class="footer-nav">
+        <a href="/" class="footer-nav-logo">
+          <img src="img/logo.png" alt="">
+        </a>
+        <ul>
+          <li><a href="#">Продукты</a></li>
+          <li><a href="#">Технология</a></li>
+          <li><a href="#">Поддержка</a></li>
+          <li><a href="#">Новости</a></li>
+          <li><a href="#">О компании</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Политика конфиденциальности</a></li>
+        </ul>
+      </nav>
+      <div class="footer-footer">
+        <div class="adress">
+          <p>ООО «Совтест АТЕ»</p>
+          <p>Россия, Курск</p>
+          <p>улица Карла Маркса, 135</p>
+        </div>
+        <div class="social">
+          <a href="#">
+            <img src="img/icons/fb.svg" alt="">
+          </a>
+          <a href="#">
+            <img src="img/icons/yt.svg" alt="">
+          </a>
+          <a href="#">
+            <img src="img/icons/tw.svg" alt="">
+          </a>
+          <a href="#">
+            <img src="img/icons/ln.svg" alt="">
+          </a>
+        </div>
+        <a href="tel:" class="phone">8 (800) 200-54-17</a>
+      </div>
+    </footer>
 
   
   
@@ -343,8 +364,7 @@
   <script src="js/jq-3-4-1.js"></script>
   <script src="js/libs.min.js"></script>
   <script src="js/wow.min.js"></script>
-  <script src="js/fullpage.js"></script>
-  <script src="js/common.js"></script>
+  <!-- <script src="js/fullpage.js"></script> -->
   <script src="js/index.js"></script>
   
 </body>
