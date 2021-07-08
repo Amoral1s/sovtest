@@ -1002,4 +1002,14 @@
   .present-wrap-item img {
     min-height: 300px;
   }
+  .footer-nav {
+    margin-bottom: 20px;
+  }
+  .footer-brands {
+    padding-bottom: 30px;
+  }
+  .footer-brands img {
+    max-width: -webkit-calc(100% / 6);
+    max-width: calc(100% / 6);
+  }
 }
