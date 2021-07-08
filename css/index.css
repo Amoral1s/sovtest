@@ -226,6 +226,7 @@
 
 .solution {
   min-height: 1000px;
+  overflow: hidden;
 }
 
 .solution-wrap {
