@@ -1278,6 +1278,35 @@
   .footer-nav ul li a {
     font-size: 12px;
   }
+  .popup h3 {
+    font-size: 20px;
+  }
+  .popup p {
+    font-size: 14px;
+  }
+  .popup-wrap {
+    width: 100%;
+  }
+  .popup-wrap-form {
+    padding: 20px;
+  }
+  .popup-wrap-form-row {
+    margin-bottom: 10px;
+  }
+  .popup-wrap-form-row input {
+    height: 40px;
+  }
+  .popup-wrap-form-row textarea {
+    height: 80px;
+  }
+  .popup-wrap-form-row label {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+  .popup-wrap-form-row input.button {
+    height: 45px;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1408,6 +1437,19 @@
   }
   .footer-nav {
     display: none;
+  }
+  .popup {
+    max-width: -webkit-calc(100% - 30px);
+    max-width: calc(100% - 30px);
+    width: 100%;
+    padding-top: 30px;
+  }
+  .popup p {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  .popup .close {
+    top: 10px;
   }
 }
 
