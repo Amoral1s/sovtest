@@ -669,8 +669,7 @@ select::after {
             align-items: flex-end;
     margin-top: 30px;
   }
-  .mob-menu .social img {
-    max-height: 35px;
+  .mob-menu .social a {
     margin-right: 25px;
   }
   .mob-menu .phone {

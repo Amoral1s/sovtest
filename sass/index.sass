@@ -361,6 +361,8 @@
     &-logo
       display: none
     .social
+      display: flex
+      justify-content: center
       a
         margin: 0 15px
     .phone
@@ -482,8 +484,33 @@
       font-size: 24px
       text-align: center
 
-
-
+.social
+  a
+    height: 30px
+    width: 30px
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: bottom center
+    transition: .2s
+    display: flex
+    &:hover
+      transition: .2s
+    &:nth-child(1)
+      background-image: url(../img/icons/fb.svg)
+      &:hover
+        background-image: url(../img/icons/fb-h.svg)
+    &:nth-child(2)
+      background-image: url(../img/icons/yt.svg)
+      &:hover
+        background-image: url(../img/icons/yt-h.svg)
+    &:nth-child(3)
+      background-image: url(../img/icons/tw.svg)
+      &:hover
+        background-image: url(../img/icons/tw-h.svg)
+    &:nth-child(4)
+      background-image: url(../img/icons/ln.svg)
+      &:hover
+        background-image: url(../img/icons/ln-h.svg)
 
 
 

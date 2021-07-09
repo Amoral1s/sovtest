@@ -776,6 +776,17 @@
   display: none;
 }
 
+.footer-footer .social {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .footer-footer .social a {
   margin: 0 15px;
 }
@@ -1004,6 +1015,60 @@
 #thx .container p {
   font-size: 24px;
   text-align: center;
+}
+
+.social a {
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+          background-size: contain;
+  background-position: bottom center;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.social a:hover {
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.social a:nth-child(1) {
+  background-image: url(../img/icons/fb.svg);
+}
+
+.social a:nth-child(1):hover {
+  background-image: url(../img/icons/fb-h.svg);
+}
+
+.social a:nth-child(2) {
+  background-image: url(../img/icons/yt.svg);
+}
+
+.social a:nth-child(2):hover {
+  background-image: url(../img/icons/yt-h.svg);
+}
+
+.social a:nth-child(3) {
+  background-image: url(../img/icons/tw.svg);
+}
+
+.social a:nth-child(3):hover {
+  background-image: url(../img/icons/tw-h.svg);
+}
+
+.social a:nth-child(4) {
+  background-image: url(../img/icons/ln.svg);
+}
+
+.social a:nth-child(4):hover {
+  background-image: url(../img/icons/ln-h.svg);
 }
 
 @media (max-width: 1600px) {
