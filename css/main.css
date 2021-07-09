@@ -1820,7 +1820,7 @@
     font-size: 16px;
   }
   .products .woocommerce ul.products .slick-list {
-    overflow: visible !important;
+    overflow: visible;
     padding-left: 0 !important;
   }
   .products .woocommerce ul.products li {
