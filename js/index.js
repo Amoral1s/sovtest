@@ -29,7 +29,6 @@ jQuery(document).ready(function ($) {
       dots: false,
       arrows: false,
       adaptiveHeight: true,
-      variableWidth: true,
       focusOnSelect: true
     });
     
@@ -47,7 +46,6 @@ jQuery(document).ready(function ($) {
       dots: false,
       arrows: false,
       adaptiveHeight: true,
-      variableWidth: true,
       focusOnSelect: true
     });
 
