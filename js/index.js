@@ -24,9 +24,13 @@ jQuery(document).ready(function ($) {
       slidesToScroll: 1,
       infinite: false,
       centerMode: true,
+      centerPadding: '0',
+      speed: 300,
       dots: false,
       arrows: false,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      variableWidth: true,
+      focusOnSelect: true
     });
     
   }
