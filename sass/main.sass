@@ -1,27 +1,452 @@
 @import "vars"
 
 
+.st
+  background-color: $light
+  display: flex
+  position: relative
+  min-height: 850px
+  &-right
+    video
+      z-index: 10
+      position: absolute
+      bottom: 282px
+      width: 900px
+      right: 50px
+    &-content
+      background-color: #1E1F27
+      padding: 50px
+      width: max-content
+      position: absolute
+      bottom: 0
+      right: 0
+      z-index: 1
+      h3
+        font-size: 34px
+        margin-bottom: 25px
+      p
+        font-size: 22px
+        margin-bottom: 10px
+        &:last-child
+          margin-bottom: 0
+  &-left
+    color: $dark
+    padding-top: 160px
+    h1
+      font-size: 140px
+    p
+      font-size: 34px 
+      max-width: 500px
+
+.lora
+  background-image: url(../img/asset/lora-bg.png)
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: bottom center
+  min-height: 950px
+  background-color: $dark
+  padding-top: 200px
+  .container
+    display: flex
+    flex-direction: column
+    align-items: center
+    p
+      font-size: 32px
+      margin-bottom: 70px
+
+.lot
+  background-image: url(../img/lot/lot-bg.jpg)
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: bottom center
+  min-height: 950px
+
+.features
+  padding-top: 50px
+  padding-bottom: 100px
+  .title
+    width: 100%
+    display: flex
+    justify-content: space-between
+    .button
+      width: 400px
+      height: 60px
+  &>p
+    font-size: 32px
+    display: block
+    margin-top: 50px
+    margin-bottom: 100px
+  &-wrap
+    &-item
+      border-bottom: 1px solid #fff
+      transition: .2s
+      &:hover
+        border-bottom: 1px solid $hover
+        transition: .2s
+      &-title
+        font-size: 36px
+        font-weight: 600
+        position: relative
+        cursor: pointer
+        transition: .2s
+        padding-bottom: 15px
+        padding-top: 15px
+        &::after
+          position: absolute
+          content: ''
+          height: 3px
+          width: 25px
+          background-color: #fff
+          right: 0
+          top: 45px
+          transition: .2s
+        &::before
+          position: absolute
+          content: ''
+          height: 3px
+          width: 25px
+          background-color: #fff
+          right: 0
+          transform: rotate(90deg)
+          top: 45px
+          transition: .2s
+        &:hover
+          color: $hover
+          &::before,
+          &::after
+            background-color: $hover
+            transition: .2s
+      &-content
+        font-size: 28px
+        font-weight: 400
+        margin-bottom: 35px
+        display: none
+      &-active
+        .features-wrap-item-title
+          &::before
+            transform: none
+            transition: .2s
+
+@keyframes slides
+  0%
+    top: 100%
+  10%
+    top: 0
+  85%
+    top: 0
+  90%
+    top: 100%
+@keyframes slidesend
+  0%
+    top: 100%
+  10%
+    top: 0
+  85%
+    top: 0
+  100%
+    top: 0
+
+.slides
+  background-color: $light
+  height: 960px
+  padding-top: 200px
+  position: relative
+  &-right
+    height: 100%
+    position: absolute
+    top: 0
+    width: 50%
+    right: 0
+    video
+      height: 100%
+  &-left
+    width: 50%
+    position: relative
+    height: 100%
+    height: 600px
+    &-item
+      position: absolute
+      width: 100%
+      height: 100%
+      height: 600px
+      overflow: hidden
+      p
+        font-size: 30px
+        color: $dark
+        position: absolute
+        top: 100%
+        width: calc(100% - 150px)
+.slides-active
+  .slides-left-item
+    &:nth-child(1)
+      p
+        animation-name: slides
+        animation-duration: 10s
+    &:nth-child(2)
+      p
+        animation-name: slides
+        animation-duration: 10s
+        animation-delay: 9s
+    &:nth-child(3)
+      p
+        animation-name: slidesend
+        animation-duration: 10s
+        animation-delay: 18s
+        animation-fill-mode: forwards
+
+.double
+  display: flex
+  justify-content: center
+  align-items: flex-start
+  h2
+    font-size: 60px
+    margin-bottom: 50px
+  p
+    margin-bottom: 50px
+    font-size: 26px
+  ul
+    li
+      font-size: 26px
+      margin-bottom: 10px
+      position: relative
+      padding-left: 40px 
+      &::after
+        position: absolute
+        content: ''
+        height: 2px
+        width: 20px
+        background-color: #fff
+        top: 50%
+        transform: translateY(-50%)
+        left: 0
+  &-left
+    width: 50%
+    display: flex
+    justify-content: flex-end
+    background-color: #0D1015
+    &-wrap
+      width: 100%
+      max-width: calc(1570px / 2)
+      padding-right: 100px
+      padding-top: 50px
+      padding-bottom: 50px
+      h2
+        span:nth-child(1)
+          color: #0072BC
+  &-right
+    width: 50%
+    background-color: $dark
+    &-wrap
+      width: 100%
+      max-width: calc(1570px / 2)
+      padding-left: 100px
+      padding-top: 50px
+      padding-bottom: 50px
+      img
+        margin-top: 40px
+      h2
+        span:nth-child(1)
+          color: rgba(199, 56, 163, 1)
+
+.products
+  background-color: #fff
+  color: $dark
+  .container
+    padding-top: 50px
+    padding-bottom: 50px
+  .woocommerce
+    ul.products
+      display: flex
+      justify-content: space-between
+      align-items: flex-start
+      li
+        width: calc(25% - 10px)
+        margin-bottom: 50px
+        &:hover
+          h2
+            color: $main
+            transition: .2s
+        img
+          width: 100%
+          height: 350px
+          object-fit: cover
+          object-position: center
+        h2
+          color: $dark
+          font-size: 22px
+          display: block
+          margin: 15px 0 25px 0
+          transition: .2s
+        p
+          font-size: 16px
+          color: $dark
+        .price,
+        .button
+          display: none
+
+.func
+  background-image: url(../img/func/bg.jpg)
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    padding-top: 100px
+    padding-bottom: 100px
+  .title
+    width: 50%
+    font-size: 60px
+    line-height: 1.1
+  &-item
+    width: 50%
+    padding-left: 150px
+    position: relative
+    margin-bottom: 70px
+    &:nth-child(2)
+      &:after
+        background-image: url(../img/func/1.svg)
+    &:nth-child(3)
+      &:after
+        background-image: url(../img/func/2.svg)
+    &:nth-child(4)
+      &:after
+        background-image: url(../img/func/3.svg)
+    &:nth-child(5)
+      &:after
+        background-image: url(../img/func/4.svg)
+    &:nth-child(6)
+      &:after
+        background-image: url(../img/func/5.svg)
+    &:nth-child(7)
+      &:after
+        background-image: url(../img/func/6.svg)
+    &:nth-child(8)
+      &:after
+        background-image: url(../img/func/7.svg)
+    h3
+      font-size: 24px
+      margin-bottom: 20px
+    p
+      font-size: 18px
+      max-width: calc(100% - 80px)
+    &:after
+      position: absolute
+      content: ''
+      height: 110px
+      width: 110px
+      top: 50%
+      transform: translateY(-50%)
+      left: 0
+      background-repeat: no-repeat
+      background-position: center
+      background-size: contain
+    
+.call
+  display: flex
+  justify-content: center
+  &-left
+    background-color: #1E1F27
+    width: 60%
+    padding-top: 110px
+    padding-bottom: 110px
+    display: flex
+    justify-content: flex-end
+    &-wrap
+      width: 100%
+      max-width: calc(1570px / 5 * 3)
+      display: flex
+      align-items: flex-start
+      flex-direction: column
+      justify-content: center
+      padding-right: 200px
+      h2
+        font-size: 64px
+        margin-bottom: 50px
+      p
+        font-size: 30px
+  &-right
+    background-color: #fff
+    width: 40%
+    padding-top: 110px
+    padding-bottom: 110px
+    &-wrap
+      width: 100%
+      max-width: calc(1570px / 5 * 2)
+      &-form
+        background-color: $dark
+        position: relative
+        left: -160px
+        padding: 50px
+        width: 100%
+        form
+          width: 100%
+        &-row
+          display: flex
+          flex-direction: column
+          margin-bottom: 20px
+          width: 100%
+          input
+            height: 50px
+          textarea
+            height: 100px
+          input, textarea
+            width: 100%
+            max-width: 100%
+            background-color: #1E1F27
+            box-shadow: none
+            border: none
+            color: #fff
+            appearance: none
+        input.button
+          background-color: $main
+          transition: .2s
+          height: 60px
+          font-size: 24px
+          margin-top: 40px
+          max-width: 100%
+          width: 100%
+          &:hover
+            background-color: $hover
+            transition: .2s
+
+
+
 
 .footer
+  padding-bottom: 50px
   &-brands
     display: flex
     align-items: center
     justify-content: space-between
     margin-top: 30px
+    padding-top: 30px
+    padding-bottom: 50px
   &-footer
     display: flex
     justify-content: space-between
     align-items: center
+    &-logo
+      display: none
     .social
+      display: flex
+      justify-content: center
       a
         margin: 0 15px
     .phone
       font-size: 34px
+      transition: .2s
+      &:hover
+        transition: .2s
+        color: $hover
   &-nav
     display: flex
     justify-content: space-between
     align-items: center
     margin-bottom: 40px
+    padding-bottom: 50px
     &-logo
       display: flex
       justify-content: flex-start
@@ -34,6 +459,128 @@
         margin-left: 15px
         a
           font-size: 24px
+          transition: .2s
+          &:hover
+            transition: .2s
+            color: $hover
+
+.overlay
+  z-index: 200
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(30, 31, 39, 0.85)
+  display: none
+
+.popup
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  z-index: 250
+  max-width: 500px
+  display: none
+  h3
+    font-size: 44px
+    font-weight: 400
+    padding-right: 60px
+  p
+    font-size: 20px
+    padding-right: 60px
+    margin-top: 10px
+    margin-bottom: 30px
+  .close
+    position: absolute
+    top: 0
+    right: 0
+    font-size: 50px
+    font-weight: 400
+    cursor: pointer
+    transition: .2s
+    &:hover
+      transition: .2s
+      color: $hover
+  &-wrap
+    &-form
+      background-color: $dark 
+      padding: 50px 30px
+      &-row
+        display: flex
+        flex-direction: column
+        width: 100%
+        margin-bottom: 15px
+        &:last-child
+          margin-bottom: 0
+        input, textarea
+          box-shadow: none
+          appearance: none
+          background-color: #1E1F27
+          border: none
+          max-width: 100%
+          width: 100%
+          color: #fff
+        input
+          height: 45px
+        input.button
+          background-color: $main
+          height: 60px
+          margin-top: 30px
+
+#thx
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(30, 31, 39, 1)
+  z-index: 300
+  display: none
+  .container
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    flex-direction: column
+    h3
+      font-size: 44px
+      margin-bottom: 30px
+    p
+      font-size: 24px
+      text-align: center
+
+.social
+  a
+    height: 30px
+    width: 30px
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: bottom center
+    transition: .2s
+    display: flex
+    &:hover
+      transition: .2s
+    &:nth-child(1)
+      background-image: url(../img/icons/fb.svg)
+      &:hover
+        background-image: url(../img/icons/fb-h.svg)
+    &:nth-child(2)
+      background-image: url(../img/icons/yt.svg)
+      &:hover
+        background-image: url(../img/icons/yt-h.svg)
+    &:nth-child(3)
+      background-image: url(../img/icons/tw.svg)
+      &:hover
+        background-image: url(../img/icons/tw-h.svg)
+    &:nth-child(4)
+      background-image: url(../img/icons/ln.svg)
+      &:hover
+        background-image: url(../img/icons/ln-h.svg)
 	
 @import "main/_media1200"
 @import "main/_media992"

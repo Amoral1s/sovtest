@@ -86,7 +86,6 @@ jQuery(document).ready(function ($) {
         } else {
           $('.mob-header').removeClass('mob-header-active');
         }
-        
       }
      });
 
