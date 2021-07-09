@@ -260,17 +260,17 @@ select::after {
 }
 
 .slick-slide {
-  -webkit-transition: width 0.5s !important;
-  -o-transition: width 0.5s !important;
-  transition: width 0.5s !important;
+  -webkit-transition: width 0.3s !important;
+  -o-transition: width 0.3s !important;
+  transition: width 0.3s !important;
 }
 
 .slick-track {
-  -webkit-transition: -webkit-transform 1s !important;
-  transition: -webkit-transform 1s !important;
-  -o-transition: transform 1s !important;
-  transition: transform 1s !important;
-  transition: transform 1s, -webkit-transform 1s !important;
+  -webkit-transition: -webkit-transform 0.6s !important;
+  transition: -webkit-transform 0.6s !important;
+  -o-transition: transform 0.6s !important;
+  transition: transform 0.6s !important;
+  transition: transform 0.6s, -webkit-transform 0.6s !important;
 }
 
 .button {
