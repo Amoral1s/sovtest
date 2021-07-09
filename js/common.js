@@ -68,14 +68,18 @@ jQuery(document).ready(function ($) {
   
   if (window.screen.width <= 578) { 
     $('.products .woocommerce ul.products').slick({
-      infinite: false,
+      infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      centerMode: true,
       infinite: false,
+      centerMode: true,
+      centerPadding: '0',
+      speed: 300,
       dots: false,
       arrows: false,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      variableWidth: true,
+      focusOnSelect: true
     });
 
   }
