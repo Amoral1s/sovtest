@@ -475,6 +475,10 @@ select::after {
   padding-bottom: 70px;
 }
 
+.offer .button {
+  display: none;
+}
+
 .offer .container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -532,6 +536,9 @@ select::after {
 }
 
 @media (max-width: 992px) {
+  .title {
+    font-size: 34px;
+  }
   .header {
     display: none;
   }
@@ -772,5 +779,41 @@ select::after {
   }
   .offer .container p {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer {
+    min-height: 400px;
+  }
+  .offer .container h1 {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 578px) {
+  .offer {
+    min-height: 0;
+    padding-bottom: 270px;
+    background-position: top;
+  }
+  .offer .button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .offer .container h1 {
+    font-size: 46px;
+    max-width: 400px;
+    line-height: 1.1;
+  }
+  .offer .container p {
+    font-size: 16px;
+    max-width: 200px;
+    margin-top: 20px;
   }
 }

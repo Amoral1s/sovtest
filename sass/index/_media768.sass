@@ -1,0 +1,95 @@
+@media (max-width: 768px)
+  .solution
+    max-width: 100%
+    padding-right: 
+    padding-left: 15px
+    &-wrap
+      .slick-list
+        overflow: visible
+        padding-left: 0!important
+      &-right
+        display: none
+      &-left
+        width: 100%
+        height: auto
+        &-item
+          width: 100%
+          position: static
+          display: block
+          opacity: 1
+          margin-right: 50px
+          max-width: calc(100% - 120px)
+          video
+            width: 100%
+            height: 400px
+  .present
+    &-wrap
+      &-item
+        img
+          object-fit: contain
+          min-height: 0
+          width: 100%
+          max-width: 100%
+  .about
+    background-image: url(../img/about-mob.jpg)
+    background-size: contain
+    background-position: top
+    .container
+      display: flex
+      flex-direction: column
+      align-items: center
+      max-width: 100%
+      padding-left: 0
+      padding-right: 0
+      &::after
+        transform: rotate(90deg) translateX(-50%)
+        left: 43%
+        top: 270px
+    &-left
+      width: 100%
+      min-height: 0
+      padding-right: 0
+      height: 200px
+      h2
+        text-align: center
+        max-width: 200px
+        margin: auto
+    &-right
+      width: 100%
+      background-color: $light
+      position: static
+      min-height: 400px
+      &-item
+        max-width: 540px
+        left: 50%
+        transform: translateX(-50%)
+        top: 320px
+        div
+          display: flex
+          justify-content: center
+          h3
+            text-align: center
+          p
+            text-align: center
+
+  .footer
+    &-footer
+      display: flex
+      flex-direction: column
+      align-items: center
+      .social
+        margin: 50px 0
+    &-nav
+      display: none
+
+
+
+
+
+
+
+
+
+
+
+

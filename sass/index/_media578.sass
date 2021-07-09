@@ -1,0 +1,101 @@
+@media (max-width: 578px)
+  .solution
+    max-height: 450px
+    min-height: 0
+    .title
+      display: none
+    &-wrap
+      &-left
+        min-height: 0
+        &-item
+          height: auto
+          margin-right: 20px
+          max-width: 100%
+          video
+            width: 100%
+            height: auto
+          h3
+            font-size: 16px
+          p
+            font-size: 14px
+  .present
+    &-wrap
+      &-item
+        p
+          font-size: 14px
+          line-height: 1.5
+        &:nth-child(2)
+          position: relative
+          img
+            width: calc(100% + 250px)
+            position: relative
+            left: -125px
+            max-width: 300%
+  
+  .about
+    .container
+      &::after
+        left: 38%
+    &-right
+      &-item
+        width: calc(100% - 30px)
+        div
+          h3,p
+            text-align: left
+  .news
+    margin-bottom: 40px
+    &-wrap
+      .slick-list
+        overflow: visible
+        padding-left: 0!important
+      &-item
+        margin-bottom: 0
+        width: 100%
+        max-width: 88vw
+        margin-right: 20px
+        img
+          object-fit: cover
+          display: block
+          margin-left: 0
+          object-position: left
+        .date
+          margin-top: 15px
+  .footer
+    &-footer
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
+      &-logo
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        width: 50%
+      .adress
+        width: 50%
+      .phone
+        width: 100%
+        text-align: center
+        font-size: 24px
+      .social
+        width: 100%
+        display: flex
+        justify-content: center
+        a
+          display: flex
+          align-items: flex-end
+        img
+          max-height: 30px
+          max-width: 30px
+    &-brands
+      img
+        margin-right: 20px
+      .slick-track
+        display: flex!important
+        align-items: center
+
+@media (max-width: 380px)
+  .about .container::after
+    left: 36%
+@media (max-width: 360px)
+  .about .container::after
+    left: 34%
