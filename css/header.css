@@ -259,6 +259,20 @@ select::after {
   display: flex;
 }
 
+.slick-slide {
+  -webkit-transition: width 0.5s !important;
+  -o-transition: width 0.5s !important;
+  transition: width 0.5s !important;
+}
+
+.slick-track {
+  -webkit-transition: -webkit-transform 1s !important;
+  transition: -webkit-transform 1s !important;
+  -o-transition: transform 1s !important;
+  transition: transform 1s !important;
+  transition: transform 1s, -webkit-transform 1s !important;
+}
+
 .button {
   display: -webkit-box;
   display: -webkit-flex;
