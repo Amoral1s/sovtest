@@ -508,6 +508,11 @@ select::after {
   overflow: hidden;
 }
 
+.mob-header,
+.mob-menu {
+  display: none;
+}
+
 @media (max-width: 1370px) {
   .title {
     font-size: 44px;
