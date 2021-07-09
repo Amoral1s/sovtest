@@ -71,6 +71,7 @@ jQuery(document).ready(function ($) {
       infinite: false,
       slidesToShow: 1,
       slidesToScroll: 1,
+      centerMode: true,
       infinite: false,
       dots: false,
       arrows: false,
