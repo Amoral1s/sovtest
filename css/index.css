@@ -1377,10 +1377,10 @@
 @media (max-width: 768px) {
   .solution {
     max-width: 100%;
+    padding-right: 0;
     padding-left: 15px;
   }
   .solution-wrap .slick-list {
-    overflow: visible;
     padding-left: 0 !important;
   }
   .solution-wrap-right {
@@ -1396,8 +1396,6 @@
     display: block;
     opacity: 1;
     margin-right: 50px;
-    max-width: -webkit-calc(100% - 120px);
-    max-width: calc(100% - 120px);
   }
   .solution-wrap-left-item video {
     width: 100%;
@@ -1532,7 +1530,6 @@
   .solution-wrap-left-item {
     height: auto;
     margin-right: 20px;
-    max-width: 100%;
   }
   .solution-wrap-left-item video {
     width: 100%;
@@ -1570,9 +1567,9 @@
   }
   .news {
     margin-bottom: 40px;
+    padding-right: 0;
   }
   .news-wrap .slick-list {
-    overflow: visible;
     padding-left: 0 !important;
   }
   .news-wrap-item {

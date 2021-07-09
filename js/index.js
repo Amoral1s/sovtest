@@ -23,6 +23,7 @@ jQuery(document).ready(function ($) {
       slidesToShow: 1,
       slidesToScroll: 1,
       infinite: false,
+      centerMode: true,
       dots: false,
       arrows: false,
       adaptiveHeight: true
@@ -35,6 +36,7 @@ jQuery(document).ready(function ($) {
       infinite: false,
       slidesToShow: 1,
       slidesToScroll: 1,
+      centerMode: true,
       infinite: false,
       dots: false,
       arrows: false,
