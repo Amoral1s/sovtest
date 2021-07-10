@@ -1,5 +1,118 @@
 @import "vars"
 
+.page-news
+  background-color: $light
+  padding-top: 50px
+  padding-bottom: 100px
+  .title
+    color: $dark
+  &-btn
+    width: 100%
+    display: flex
+    justify-content: center
+    .button
+      height: 60px
+      font-size: 20px
+      width: 360px
+  &-wrap
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: stretch
+    &-item
+      width: calc(25% - 15px)
+      margin-bottom: 70px
+      margin-right: 20px
+      cursor: pointer
+      &:hover
+        h2
+          transition: .2s
+          color: $hover
+      &:nth-child(4n+4)
+        margin-right: 0
+      img
+        width: 100%
+        height: 230px
+        object-fit: cover
+        object-position: center
+      .date
+        color: #C738A3
+        font-size: 16px
+        margin: 5px 0 3px 0
+      h2
+        color: $dark
+        transition: .2s
+        font-size: 22px
+        line-height: 1.2
+        margin-bottom: 10px
+      p
+        font-size: 16px
+        color: $dark
+
+.single-news
+  background: $light
+  padding-top: 70px
+  padding-bottom: 70px
+  &-content
+    color: $dark
+    img
+      display: block
+      margin: 20px
+    p
+      font-size: 16px
+      line-height: 1.6
+      margin-bottom: 20px
+    h2
+      font-size: 40px
+      margin-bottom: 20px
+      margin-top: 30px
+    h3
+      font-size: 34px
+    h4
+      font-size: 28px
+    h5
+      font-size: 24px
+    h6
+      font-size: 20px
+    h3,h4,h5,h6
+      margin-bottom: 20px
+      margin-top: 30px
+    ol
+      padding-left: 20px
+    ul
+      li
+        position: relative
+        padding-left: 15px
+        &::after
+          position: absolute
+          content: ''
+          height: 5px
+          width: 5px
+          border-radius: 100%
+          background-color: $main
+          top: 50%
+          transform: translateY(-50%)
+          left: 0
+    ul, ol
+      margin-bottom: 30px
+      margin-top: 10px
+      li
+        margin-bottom: 15px
+  .date
+    font-size: 18px
+    margin-bottom: 30px
+    color: #C738A3
+  .thumb
+    width: 100%
+    display: flex
+    margin-bottom: 30px
+    img
+      max-width: 900px
+      width: 100%
+      max-height: 100%
+  .title
+    color: $dark
+
 
 .st
   background-color: $light
@@ -892,7 +1005,100 @@
       &:hover
         background-image: url(../img/icons/ln-h.svg)
 	
-
+.contacts
+  background-color: $light
+  color: $dark
+  padding-top: 70px
+  padding-bottom: 0px
+  .container  
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &-right
+    background-color: #EDEDED
+    padding: 50px
+    padding-bottom: 20px
+    margin-bottom: 70px
+    h2
+      font-size: 40px
+      margin-bottom: 40px
+    &-row
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 100%
+      margin-bottom: 30px
+      &-item
+        width: 50%
+        &:nth-child(1)
+          margin-right: 10px
+        &:nth-child(2)
+          margin-left: 10px
+        input
+          width: 100%
+          max-width: 100%
+          height: 55px
+          appearance: none
+          background-color: #EDEDED
+          color: $dark
+          border: 1px solid #C4C4C4
+          box-shadow: none
+      
+      textarea
+        width: 100%
+        background-color: #EDEDED
+        appearance: none
+        box-shadow: none
+        border: 1px solid #C4C4C4
+        max-width: 100%
+        width: 100%
+      input.button
+        background-color: $main
+        color: #fff
+        height: 70px
+        max-width: 100%
+        width: 100%
+        &:hover
+          background-color: $hover
+    .full
+      .contacts-right-row-item
+        width: 100%
+        margin-right: 0
+  &-left
+    width: 50%
+    .adress::after
+      background-image: url(../img/icons/map.svg)
+    .email::after
+      background-image: url(../img/icons/email.svg)
+    .phone::after
+      background-image: url(../img/icons/phone.svg)
+    div
+      margin-bottom: 50px
+      position: relative
+      padding-left: 40px
+      &::after
+        position: absolute
+        top: 5px
+        left: 0
+        content: ''
+        height: 20px
+        width: 20px
+        background-position: left top
+        background-size: contain
+        background-repeat: no-repeat
+      a
+        font-size: 30px
+        color: $dark
+        &:hover
+          color: $hover
+      p
+        font-size: 30px
+        margin-bottom: 5px
+  &-right
+    width: 50%
+  .title
+    color: $dark
+    
 
 
 

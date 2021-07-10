@@ -121,7 +121,14 @@
       &-wrap
         max-width: calc(1170px / 5 * 3)
 
-
+  .page-news
+    &-wrap
+      &-item
+        width: calc(33% - 10px)
+        &:nth-child(4n+4)
+          margin-right: 20px
+        &:nth-child(3n+3)
+          margin-right: 0px
 
 
 
@@ -149,6 +156,15 @@
       a.phone
         font-size: 22px
 @media (max-width: 1200px)
+
+  .page-news
+    &-wrap
+      &-item
+        width: calc(32% - 10px)
+        &:nth-child(4n+4)
+          margin-right: 20px
+        &:nth-child(3n+3)
+          margin-right: 0px
   .st
     min-height: 500px
     &-left
@@ -310,3 +326,14 @@
       padding-bottom: 30px
       img
         max-width: calc(100% / 6)
+  .contacts
+    &-right
+      width: 60%
+    &-left
+      width: 40%
+      div
+        p
+          font-size: 24px
+        a
+          font-size: 24px
+          

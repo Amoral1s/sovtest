@@ -183,7 +183,103 @@
     p
       font-size: 18px
 
-
+  .single-news
+    position: relative
+    padding-top: 100px
+    &-content
+      h2
+        font-size: 32px
+      h3
+        font-size: 26px
+      h4
+        font-size: 22px
+      h5
+        font-size: 18px
+      h6
+        font-size: 16px
+    .thumb
+      margin-bottom: 20px
+    .title
+      line-height: 1.1
+      margin-bottom: 40px
+    .date
+      margin-top: 20px
+      margin-bottom: 20px
+    &::after
+      position: absolute
+      content: ''
+      height: 70px
+      width: 100%
+      top: 0
+      left: 0
+      background-color: $dark
+  .page-news
+    padding-bottom: 70px
+    position: relative
+    padding-top: 100px
+    .title
+      margin-bottom: 35px
+    &::after
+      position: absolute
+      content: ''
+      height: 70px
+      width: 100%
+      background-color: $dark
+      top: 0
+      left: 0
+    &-wrap
+      justify-content: space-between
+      &-item
+        width: calc(50% - 10px)
+        margin-bottom: 50px
+        margin-right: 0
+        &:nth-child(3n+3)
+          margin-right: 0px
+        &:nth-child(4n+4)
+          margin-right: 0px
+        
+  .contacts
+    padding-top: 100px
+    position: relative
+    &::after
+      position: absolute
+      content: ''
+      height: 70px
+      width: 100%
+      top: 0
+      left: 0
+      background-color: $dark
+    .container
+      flex-direction: column
+      .title
+        width: 100%
+        text-align: start
+    &-right
+      width: 100%
+    &-left
+      width: 100%
+      display: flex
+      flex-wrap: wrap
+      justify-content: flex-start
+      div
+        width: 270px
+        p
+          font-size: 16px
+        a
+          font-size: 16px
+      .adress
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        &::after
+          top: 0
+      .phone
+        &::after
+          top: 0
+      .email
+        &::after
+          top: 0
 
 
 
