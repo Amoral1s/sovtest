@@ -1,8 +1,95 @@
 jQuery(document).ready(function ($) {
 
+  $('.hars-left-wrap-item').on('click', function(e, index) {
+
+    $('.hars-left-wrap-item').removeClass('hars-left-wrap-item-active');
+    $(this).addClass('hars-left-wrap-item-active');
+
+    const tab = document.querySelectorAll('.tab');
+
+    if (tab.length > 0) {
+      tab.forEach((elem) => {
+        elem.style.display = 'none';
+      });
+      myFadeInFlex(tab[$(this).index()]);
+      
+    }
+
+    console.log( )
+  
+
+  });
+
+  //FADE JS
+  function myFadeOut(el) {
+    var opacity = 1;
+    var timer = setInterval(function() {
+      if(opacity <= 0.1) {
+        clearInterval(timer);
+        el.style.display = "none";
+      }
+      el.style.opacity = opacity;
+      opacity -= opacity * 0.1;
+    }, 10);
+  }
+
+  function myFadeInFlex(el) {
+    var opacity = 0.01;
+    el.style.display = "block";
+    var timer = setInterval(function() {
+      if(opacity >= 1) {
+        clearInterval(timer);
+      }
+      el.style.opacity = opacity;
+      opacity += opacity * 0.1;
+    }, 10);
+  }
+
   const videos = document.querySelectorAll('video source');
 
 
+  const productLeft = document.querySelector('.product-left');
+
+  if (productLeft) {
+    if (window.screen.width >= 1367) {
+      $('.product-left').fotorama({
+        width: '100%',
+        maxwidth: '100%',
+        ratio: 16/9,
+        allowfullscreen: true,
+        nav: 'thumbs',
+        fit: 'contain',
+        arrows: false,
+        thumbwidth: 150,
+        thumbheight: 150
+      });
+    } else if (window.screen.width <= 1366 && window.screen.width >= 993) {
+      $('.product-left').fotorama({
+        width: '100%',
+        maxwidth: '100%',
+        allowfullscreen: false,
+        nav: 'thumbs',
+        fit: 'contain',
+        arrows: false,
+        thumbwidth: 100,
+        thumbheight: 100
+      });
+    } else if (window.screen.width <= 992) {
+      $('.product-left').fotorama({
+        width: '100%',
+        maxwidth: '100%',
+        ratio: 4/3,
+        allowfullscreen: false,
+        nav: 'thumbs',
+        fit: 'contain',
+        arrows: false,
+        thumbwidth: 85,
+        thumbheight: 85
+      });
+    }
+    
+  }
+  
 
   if (window.screen.width >= 1600) {
     window.addEventListener('scroll', function() {
@@ -85,11 +172,15 @@ jQuery(document).ready(function ($) {
 
       // Запускаем функцию при прокрутке страницы
     window.addEventListener('scroll', function() {
-      VisibleAb (slides);
+      if (slides) {
+        VisibleAb (slides);
+      }
     });
   
     // А также запустим функцию сразу. А то вдруг, элемент изначально видно
-    VisibleAb (slides);
+    if (slides) {
+      VisibleAb (slides);
+    }
   
   $('.features-wrap-item').on('click', function() {
     $(this).toggleClass('features-wrap-item-active');

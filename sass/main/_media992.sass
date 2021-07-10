@@ -35,6 +35,71 @@
   .lot
     min-height: 550px
 
+  .product
+    padding-top: 0
+    .container
+      display: flex
+      flex-direction: column
+      align-items: center
+      padding-left: 0
+      padding-right: 0
+      max-width: 100%
+    &-right
+      max-width: 740px
+      margin-left: auto
+      margin-right: auto
+      padding-left: 15px
+      padding-right: 15px
+    &-left
+      width: 100%
+      position: relative
+      padding-top: 70px
+      margin-bottom: 50px
+      &::after
+        position: absolute
+        content: ''
+        min-width: 120vw
+        height: 70px
+        background-color: $dark
+        top: 0
+        left: 0
+    &-right
+      width: 100%
+  
+  .hars
+    &-left
+      display: none
+    &-right
+      width: 100%
+      max-width: 100%
+      padding-top: 0
+      padding-bottom: 0
+      &-wrap 
+        padding-left: 0px
+        width: 100%
+        max-width: 100%
+        &-config
+          div
+            b
+              text-align: start
+        .mob-title
+          display: block
+          background-color: $dark
+          display: flex
+          justify-content: center
+          align-items: center
+          color: $light
+          font-size: 18px
+          height: 70px
+      .tab
+        display: block
+        max-height: 100%
+        padding-top: 20px
+        padding-bottom: 20px
+        padding-left: 20px
+        padding-right: 20px
+  
+
   .slides
     height: 330px
     padding-top: 70px

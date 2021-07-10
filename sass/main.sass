@@ -109,8 +109,6 @@
     bottom: 0
     transform: scale(1)
 
-    
-
 .lot
   background-image: url(../img/lot/lot-bg.jpg)
   background-repeat: no-repeat
@@ -523,8 +521,209 @@
             background-color: $hover
             transition: .2s
 
+.fotorama__thumb
+  background: transparent
+.fotorama__thumb-border
+  border-color: $dark
+.product
+  background-color: $light
+  padding-top: 50px
+  padding-bottom: 50px
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+  &-left
+    width: 45%
+  &-right
+    width: 50%
+    .price  
+      color: #994985
+      font-weight: 700
+      font-size: 36px
+      display: block
+      margin: 70px 0
+    h1
+      color: $dark
+      font-size: 36px
+      margin-bottom: 15px
+    p
+      color: $dark
+      margin-bottom: 30px
+      font-size: 24px
+    .content
+      color: $dark
+      font-size: 18px
+    .logos
+      display: flex
+      justify-content: space-between
+      align-items: center
+      img
+        max-width: 25%
+        object-fit: contain
+        margin-right: 30px
+
+.hars
+  display: flex
+  align-items: flex-start
+  justify-content: flex-end
+  background-color: #1E1F27
+  &-left
+    width: 40%
+    padding-top: 50px
+    padding-bottom: 50px
+    display: flex
+    justify-content: flex-end
+    background: $dark
+    &-wrap
+      width: 100%
+      max-width: calc(1570px / 5 * 2)
+      padding-left: 100px
+      padding-right: 50px
+      &-item
+        font-size: 44px
+        line-height: 1.1
+        transition: .2s
+        cursor: pointer
+        margin-bottom: 90px
+        font-weight: 700
+        &:hover
+          color: $hover
+          transition: .2s
+        &-active
+          color: $hover
+  &-right
+    width: 60%
+    background-color: #1E1F27
+    padding-top: 50px
+    padding-bottom: 50px
+    display: flex
+    justify-content: flex-start
+    .mob-title
+      display: none
+      font-weight: 600
+    &-wrap
+      width: 100%
+      max-width: calc(1570px / 5 * 3)
+      height: 100%
+      &-docs
+        display: none
+        div
+          display: flex
+          flex-direction: column
+        a
+          margin-bottom: 20px
+          font-size: 24px
+          opacity: 0.7
+          padding-left: 40px
+          position: relative
+          transition: .2s
+          &:hover
+            transition: .2s
+            opacity: 1
+          &::after
+            position: absolute
+            content: ''
+            background-image: url(../img/product/icon.svg)
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+            left: 0
+            top: 50%
+            transform: translateY(-50%)
+            height: 30px
+            width: 20px
+      &-param
+        display: none
+        h4
+          font-size: 24px
+          margin-bottom: 25px
+        ul
+          margin-bottom: 50px
+          li
+            position: relative
+            padding-left: 20px
+            font-size: 18px
+            opacity: .7
+            margin-bottom: 10px
+            font-weight: 400
+            &::after
+              position: absolute
+              content: ''
+              height: 5px
+              width: 5px
+              border-radius: 100%
+              opacity: 0.7
+              background-color: $light
+              left: 0
+              top: 50%
+              transform: translateY(-50%)
+      &-feat
+        display: none
+        ul
+          li
+            margin-bottom: 15px
+            color: $light
+            opacity: .7
+            font-size: 20px
+            position: relative
+            padding-left: 20px
+            font-weight: 400
+            &::after
+              position: absolute
+              content: ''
+              height: 7px
+              width: 7px
+              border-radius: 100%
+              opacity: 0.7
+              background-color: $light
+              left: 0
+              top: 50%
+              transform: translateY(-50%)
+      &-config
+        padding-left: 100px
+        div
+          display: flex
+          align-items: flex-start
+          margin-bottom: 15px
+          width: 100%
+          b
+            width: 40%
+            text-align: end
+            margin-right: 15px
+            font-size: 22px
+            font-weight: 400
+          p
+            width: 60%
+            margin-left: 15px
+            color: #F9F9F9
+            opacity: .7
+            font-size: 22px
+            font-weight: 400
+      .tab
+        padding-left: 100px
+        overflow-y: auto
+        max-height: 600px
+        &::-webkit-scrollbar
+          width: 5px 
+          height: 5px
+        &::-webkit-scrollbar-button
+          background-color: #1E1F27
+        &::-webkit-scrollbar-track
+          background-color: #1E1F27
+        &::-webkit-scrollbar-track-piece
+          background-color: #1E1F27
+        &::-webkit-scrollbar-thumb
+          height: 10px 
+          background-color: $light
+        &::-webkit-scrollbar-corner
+          background-color: #1E1F27
+        &::-webkit-resizer
+          background-color: #1E1F27
 
 
+
+    
 
 .footer
   padding-bottom: 50px
@@ -693,6 +892,32 @@
       &:hover
         background-image: url(../img/icons/ln-h.svg)
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @import "main/_media1200"
 @import "main/_media992"
 @import "main/_media768"
