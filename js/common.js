@@ -50,6 +50,21 @@ jQuery(document).ready(function ($) {
 
   const productLeft = document.querySelector('.product-left');
 
+  if (window.screen.width <= 578) {
+
+    $('.footer-brands').slick({
+      infinite: true,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      infinite: true,
+      dots: false,
+      arrows: false,
+      adaptiveHeight: true
+    });
+    
+  }
+
+
   if (productLeft) {
     if (window.screen.width >= 1367) {
       $('.product-left').fotorama({
