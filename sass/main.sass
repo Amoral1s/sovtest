@@ -54,12 +54,123 @@
       font-size: 32px
       margin-bottom: 70px
 
+@keyframes lotTop
+  0%
+    bottom: -800px
+  30%
+    bottom: -400px
+    transform: scale(1.1)
+  40%
+    bottom: -400px
+    transform: scale(1.1)
+  60%
+    bottom: -200px
+    transform: scale(.9)
+  80%
+    bottom: -200px
+    transform: scale(.9)
+  100%
+    bottom: -50px
+    transform: scale(.7)
+@keyframes lotCenter
+  0%
+    bottom: -400px
+  30%
+    bottom: -300px
+    transform: scale(1.3)
+  40%
+    bottom: -300px
+    transform: scale(1.3)
+  60%
+    bottom: -100px
+    transform: scale(1.1)
+  80%
+    bottom: -100px
+    transform: scale(1.1)
+  100%
+    bottom: 0
+    transform: scale(1)
+@keyframes lotBot
+  0%
+    bottom: -200px
+  30%
+    bottom: -200px
+    transform: scale(1.3)
+  40%
+    bottom: -200px
+    transform: scale(1.3)
+  60%
+    bottom: -50px
+    transform: scale(1.1)
+  80%
+    bottom: -50px
+    transform: scale(1.1)
+  100%
+    bottom: 0
+    transform: scale(1)
+
+    
+
 .lot
   background-image: url(../img/lot/lot-bg.jpg)
   background-repeat: no-repeat
   background-size: cover
-  background-position: bottom center
+  background-position: top center
   min-height: 950px
+  display: flex
+  align-items: flex-end
+  padding-bottom: 50px
+  overflow: hidden
+  position: relative
+  .container
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-end
+    height: 100%
+    position: relative
+  &-top
+    position: relative
+    left: -30px
+    transform: scale(1)
+    transition: .3s
+    bottom: -800px
+    transition: 1s
+    img
+      display: block
+      margin: auto
+  &-center
+    display: block
+    position: relative
+    bottom: -400px
+    transition: 1s
+    
+    img
+      display: block
+      max-width: 80%
+      margin: auto
+  &-bot
+    position: relative
+    bottom: -200px
+    transition: 1s
+    
+    img
+      max-width: 80%
+      margin: auto
+      display: block
+  &-active
+    .lot-top
+      animation-name: lotTop
+      animation-duration: 5s
+      animation-fill-mode: forwards
+    .lot-center
+      animation-name: lotCenter
+      animation-duration: 5s
+      animation-fill-mode: forwards
+    .lot-bot
+      animation-name: lotBot
+      animation-duration: 5s
+      animation-fill-mode: forwards
 
 .features
   padding-top: 50px

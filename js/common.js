@@ -3,6 +3,51 @@ jQuery(document).ready(function ($) {
   const videos = document.querySelectorAll('video source');
 
 
+
+  if (window.screen.width >= 1600) {
+    window.addEventListener('scroll', function() {
+      if (this.window.pageYOffset > 1700 && this.window.pageYOffset < 2800) {
+        $('.lot').addClass('lot-active');
+      } else {
+        $('.lot').removeClass('lot-active');
+      }
+    });
+  } else if (window.screen.width <= 1599 && window.screen.width >= 1201) {
+    window.addEventListener('scroll', function() {
+      if (this.window.pageYOffset > 900 && this.window.pageYOffset < 2200) {
+        $('.lot').addClass('lot-active');
+      } else {
+        $('.lot').removeClass('lot-active');
+      }
+    });
+  } else if (window.screen.width <= 1200 && window.screen.width >= 993) {
+    window.addEventListener('scroll', function() {
+      if (this.window.pageYOffset > 600 && this.window.pageYOffset < 1900) {
+        $('.lot').addClass('lot-active');
+      } else {
+        $('.lot').removeClass('lot-active');
+      }
+    });
+  } else if (window.screen.width <= 992 && window.screen.width >= 769) {
+    window.addEventListener('scroll', function() {
+      if (this.window.pageYOffset > 600 && this.window.pageYOffset < 2200) {
+        $('.lot').addClass('lot-active');
+      } else {
+        $('.lot').removeClass('lot-active');
+      }
+    });
+  } else if (window.screen.width <= 768 && window.screen.width >= 579) {
+    window.addEventListener('scroll', function() {
+      if (this.window.pageYOffset > 900 && this.window.pageYOffset < 1900) {
+        $('.lot').addClass('lot-active');
+      } else {
+        $('.lot').removeClass('lot-active');
+      }
+    });
+  }
+  
+
+
   videos.forEach((elem) => {
     elem.src = elem.dataset.src;
     elem.parentElement.load();

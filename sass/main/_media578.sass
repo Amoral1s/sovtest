@@ -23,7 +23,13 @@
         margin-bottom: 0
 
   .lot
-    min-height: 300px
+    min-height: 400px
+    &-top
+      bottom: 0
+    &-center
+      bottom: 30px
+    &-bot
+      bottom: 0
 
   .features
     padding-top: 20px
@@ -158,6 +164,10 @@
         align-items: center
 
 @media (max-width: 380px)
+  .lot
+    min-height: 360px
+    &-center
+      bottom: 30px
   .slides
     height: 470px
     &-left
