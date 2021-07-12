@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="stylesheet" href="css/header.css">
+  <!-- <?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Chrome-Lighthouse') === false  || stripos($_SERVER['HTTP_USER_AGENT'], 'Google Page Speed Insights') === false): ?> 
+  <?php endif; ?>		 -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" id="myViewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+
+  <title>New project</title>
+  <meta name="description" content="Содержимое мета-тега «description»">
+
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:title" content="title" />
+  <meta property="og:desctiption" content="desc" />
+
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/libs.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- <link rel="stylesheet" href="css/fullpage.css"> -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/calc.css">
+
+
+  
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="header-logo"><img src="img/logo.png" alt="Sovtest Telematica"></a>
+    <nav class="header-menu">
+      <ul>
+        <li class="menu-item-has-children">
+          <a href="#">Продукты</a>
+        </li>
+        <li><a href="#">Технология</a></li>
+        <li><a href="#">Поддержка</a></li>
+        <li><a href="#">Новости</a></li>
+        <li><a href="#">О компании</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="header-btn">
+      <div class="button call-callback">
+        Заказать
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="calc">
+  <div class="container">
+    <h1 class="title">
+      Расчет экономии
+    </h1>
+    <div class="text">
+      <p>
+        Сетевая архитектура LoRaWAN развертывается в топологии «звезда - звезда», в которой шлюзы ретранслируют сообщения между конечными устройствами и центральным сетевым сервером. Шлюзы подключаются к сетевому серверу через стандартные IP-соединения и работают как прозрачный мост, просто преобразуя RF-пакеты в IP-пакеты и наоборот. 
+      </p>
+      <p>
+        Беспроводная связь использует преимущества Long Range (Диапазон Дальнего Действия) для физического уровня LoRa, позволяя одноточечное соединение между конечным устройством и одним или несколькими шлюзами. Все режимы способны к двунаправленной связи, и есть поддержка групп многоадресной адресации для эффективного использования спектра во время таких задач, как модернизация прошивки по воздуху (FOTA) или другие сообщения массового распространения.
+      </p>
+    </div>
+    <div class="calc-wrap">
+      <h2>
+        Используемые лампы
+      </h2>
+      <p>
+        Сколько у вас уличных фонарей в целевом районе?
+      </p>
+      <div class="section-one">
+        <div class="calc-form-row no-del">
+          <div class="calc-form-row-item">
+            <label for="">Тип лампы:</label>
+            <div>
+              <select name="" id="">
+                <option value="1" selected>Светодиодная</option>
+                <option value="2">Светодиодная 0-10V</option>
+                <option value="3">Светодиодная DALI</option>
+              </select>
+            </div>
+          </div>
+          <!-- /.calc-form-row-item -->
+          <div class="calc-form-row-item">
+            <label for="">Кол-во:</label>
+            <div>
+              <input type="text" value="1">
+            </div>
+          </div>
+          <!-- /.calc-form-row-item -->
+          <div class="calc-form-row-item">
+            <label for="">Мощность W:</label>
+            <div>
+              <input type="text" value="100">
+            </div>
+          </div>
+          <!-- /.calc-form-row-item -->
+          <div class="calc-form-row-item btn-item">
+            <div class="button add">
+              Добавить
+            </div>
+          </div>
+          <!-- /.calc-form-row-item -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calc-kw">
+    <div class="container">
+      <h3>Цена килловата</h3>
+      <p>
+        Какая цена на электроэнергию в вашем районе?
+      </p>
+      <label for="">Укажите стоимость:</label>
+      <div>
+        <input type="text" value="3.76">
+      </div>
+    </div>
+
+  </div>
+  <div class="calc-city">
+    <div class="container">
+      <h3>Выбор города</h3>
+      <p>Где находится проект управления уличным освещением?</p>
+      <div class="calc-city-wrap">
+        <div class="calc-city-wrap-input">
+          <div class="calc-city-wrap-input-select">
+            <label for="">Укажите свой город:</label>
+            <div>
+              <select name="" id="">
+                <option value="">Москва</option>
+                <option value="">Москва</option>
+              </select>
+            </div>
+          </div>
+          <!-- /.calc-city-wrap-input-select -->
+          <div class="calc-city-wrap-input-map">
+            <b>Широта:</b>
+            <p class="latitude">53.3549977815</p>
+            <b>Долгота:</b>
+            <p class="longitude">83.7450068755</p>
+            <b>Закат:</b>
+            <p class="sunset">20:54</p>
+            <b>Восход:</b>
+            <p class="sunrise">04:05</p>
+          </div>
+        </div>
+        <div class="calc-city-wrap-table">
+          График
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calc-on">
+    <div class="container">
+      <h3>Задержка включения света</h3>
+      <p>Пожалуйста, выберите предпочтительный профиль уличного освещения</p>
+      <div class="calc-on-wrap">
+        <div class="calc-on-wrap-item">
+          <label for="">Укажите время включения после заката:</label>
+          <div>
+            <select name="" id="">
+              <option value="">+30 минут</option>
+              <option value="">+20 минут</option>
+            </select>
+          </div>
+        </div>
+        <!-- /.calc-dim-wrap-item -->
+        <div class="calc-on-wrap-item">
+          <label for="">Укажите время выключения после восхода:</label>
+          <div>
+            <select name="" id="">
+              <option value="">-30 минут</option>
+              <option value="">-20 минут</option>
+            </select>
+          </div>
+        </div>
+        <!-- /.calc-dim-wrap-item -->
+      </div>
+    </div>
+  </div>
+  <div class="calc-dim">
+    <div class="container">
+      <h3>Димирование</h3>
+      <p>Пожалуйста, выберите предпочтительный профиль уличного освещения</p>
+      <div class="calc-dim-profile">
+        <label for="">Выберите профиль:</label>
+        <div>
+          <select name="" id="">
+            <option value="">Экономический</option>
+            <option value="">Экономический</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-dim-table">
+        График 2
+      </div>
+    </div>
+  </div>
+  <div class="calc-eco">
+    <div class="container">
+      <h3>Расчет сохраненной энергии</h3>
+      <p>Энергопотребление в год без ST lighting  (кВт) - <b class="with-st">10</b></p>
+      <p>Энергопотребление в год с ST lighting  (кВт)  - <b class="without-st">120</b></p>
+      <div class="calc-eco-wrap">
+        <div class="calc-eco-wrap-item">
+          <img src="img/calc/12.svg" alt="">
+          <div>Экономия энергии</div>
+          <b>10</b>
+          <span>%</span>
+        </div>
+        <!-- /.calc-echo-wrap-item -->
+        <div class="calc-eco-wrap-item">
+          <img src="img/calc/12.svg" alt="">
+          <div>Экономия энергии</div>
+          <b>2690</b>
+          <span>Квт</span>
+        </div>
+        <!-- /.calc-echo-wrap-item -->
+        <div class="calc-eco-wrap-item">
+          <img src="img/calc/3.svg" alt="">
+          <div>В денежном эквиваленте</div>
+          <b>10.970</b>
+          <span>рублей</span>
+        </div>
+        <!-- /.calc-echo-wrap-item -->
+        <div class="calc-eco-wrap-item">
+          <img src="img/calc/4.svg" alt="">
+          <div>CO2</div>
+          <b>2</b>
+          <span>тонны</span>
+        </div>
+        <!-- /.calc-echo-wrap-item -->
+        <div class="calc-eco-wrap-item">
+          <img src="img/calc/5.svg" alt="">
+          <div>Сохраненно деревьеев</div>
+          <b>10</b>
+          <span>деревьев</span>
+        </div>
+        <!-- /.calc-echo-wrap-item -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="container footer">
+  <div class="footer-brands">
+    <img src="img/brands/1.png" alt="">
+    <img src="img/brands/2.png" alt="">
+    <img src="img/brands/3.png" alt="">
+    <img src="img/brands/4.png" alt="">
+    <img src="img/brands/5.png" alt="">
+  </div>
+  <nav class="footer-nav">
+    <a href="/" class="footer-nav-logo">
+      <img src="img/logo.png" alt="">
+    </a>
+    <ul>
+      <li><a href="#">Продукты</a></li>
+      <li><a href="#">Технология</a></li>
+      <li><a href="#">Поддержка</a></li>
+      <li><a href="#">Новости</a></li>
+      <li><a href="#">О компании</a></li>
+      <li><a href="#">Контакты</a></li>
+      <li><a href="#">Политика конфиденциальности</a></li>
+    </ul>
+  </nav>
+  <div class="footer-footer">
+    <a href="/" class="footer-footer-logo">
+      <img src="img/logo-mob.png" alt="logo">
+    </a>
+    <div class="adress">
+      <p>ООО «Совтест АТЕ»</p>
+      <p>Россия, Курск</p>
+      <p>улица Карла Маркса, 135</p>
+    </div>
+    <div class="social">
+      <a href="#">
+      </a>
+      <a href="#">
+      </a>
+      <a href="#">
+      </a>
+      <a href="#">
+      </a>
+    </div>
+    <a href="tel:" class="phone">8 (800) 200-54-17</a>
+  </div>
+</footer>
+
+
+
+<div class="mob-header">
+  <a href="/" class="mob-header-logo">
+    <img src="img/logo.png" alt="logo">
+  </a>
+  <div class="burger">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+<div class="mob-menu">
+  <div class="mob-menu-nav">
+    <ul>
+      <li class="menu-item-has-children">
+        <a href="#">Продукты</a>
+        <ul>
+          <li class="menu-item-has-children">
+            <a href="">АСУНО LoRaWAN</a>
+            <ul class="sub-menu">
+              <li><a href="">Контроллер модель 1 LoRaWAN</a></li>
+              <li><a href="">Контроллер модель 1 LoRaWAN</a></li>
+              <li><a href="">Контроллер модель 1 LoRaWAN</a></li>
+              <li><a href="">Контроллер модель 1 LoRaWAN</a></li>
+              <li><a href="">Контроллер модель 1 LoRaWAN</a></li>
+            </ul>
+          </li>
+          <li class="menu-item-has-children">
+            <a href="">Конверторы интерфейсов</a>
+            <ul class="sub-menu">
+              <li><a href="">RS485</a></li>
+              <li><a href="">RS485</a></li>
+              <li><a href="">RS485</a></li>
+            </ul>
+          </li>
+          <li class="menu-item-has-children">
+            <a href="">Трекинг</a>
+            <ul class="sub-menu">
+              <li><a href="">Трекер LoRaWAN 1</a></li>
+              <li><a href="">Трекер LoRaWAN 1</a></li>
+              <li><a href="">Трекер LoRaWAN 1</a></li>
+              <li><a href="">Трекер LoRaWAN 1</a></li>
+              <li><a href="">Трекер LoRaWAN 1</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">Технология</a></li>
+      <li><a href="#">Поддержка</a></li>
+      <li><a href="#">Новости</a></li>
+      <li><a href="#">О компании</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+  </div>
+  <div class="button call-callback">
+    Заказать
+  </div>
+  <a href="tel:" class="phone">8 (800) 200-54-17</a>
+  <div class="adress">
+    <p>
+      ООО «Совтест АТЕ»
+    </p>
+    <p>
+      Россия, Курск
+    </p>
+    <p>
+      улица Карла Маркса, 135
+    </p>
+  </div>
+  <div class="social">
+    <a href="#">
+    </a>
+    <a href="#">
+    </a>
+    <a href="#">
+    </a>
+    <a href="#">
+    </a>
+  </div>
+</div>
+  
+
+  <script src="js/jq-3-4-1.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+  <script src="js/libs.min.js"></script>
+  <!-- <script src="js/fullpage.js"></script> -->
+  <script src="js/common.js"></script>
+
+
+  <script src="js/calc.js"></script>
+  
+</body>
+</html>

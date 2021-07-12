@@ -8,7 +8,7 @@
   color: #040404;
 }
 
-.page-news-btn {
+.page-news .alm-btn-wrap {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -20,13 +20,17 @@
           justify-content: center;
 }
 
-.page-news-btn .button {
+.page-news .alm-btn-wrap .button {
   height: 60px;
   font-size: 20px;
   width: 360px;
 }
 
-.page-news-wrap {
+.page-news .alm-btn-wrap .button.done {
+  display: none;
+}
+
+.page-news-wrap .alm-reveal {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -109,7 +113,7 @@
 }
 
 .single-news-content p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -172,6 +176,7 @@
 
 .single-news-content ul li, .single-news-content ol li {
   margin-bottom: 15px;
+  font-size: 18px;
 }
 
 .single-news .date {
@@ -250,6 +255,9 @@
 
 .st-left h1 {
   font-size: 140px;
+  max-width: 50%;
+  line-height: 1.1;
+  margin-bottom: 50px;
 }
 
 .st-left p {
@@ -257,8 +265,18 @@
   max-width: 500px;
 }
 
+@media (min-width: 1930px) {
+  .st-right video {
+    right: -webkit-calc(50% - 900px);
+    right: calc(50% - 900px);
+  }
+  .st-right-content {
+    right: -webkit-calc(50% - 950px);
+    right: calc(50% - 950px);
+  }
+}
+
 .lora {
-  background-image: url(../img/asset/lora-bg.png);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
@@ -287,6 +305,10 @@
 .lora .container p {
   font-size: 32px;
   margin-bottom: 70px;
+}
+
+.lora.lazyloaded {
+  background-image: url(../img/asset/lora-bg.png);
 }
 
 @-webkit-keyframes lotTop {
@@ -476,7 +498,6 @@
 }
 
 .lot {
-  background-image: url(../img/lot/lot-bg.jpg);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
@@ -569,8 +590,8 @@
 .lot-active .lot-top {
   -webkit-animation-name: lotTop;
           animation-name: lotTop;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -578,8 +599,8 @@
 .lot-active .lot-center {
   -webkit-animation-name: lotCenter;
           animation-name: lotCenter;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -587,10 +608,14 @@
 .lot-active .lot-bot {
   -webkit-animation-name: lotBot;
           animation-name: lotBot;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+}
+
+.lot.lazyloaded {
+  background-image: url(../img/lot/lot-bg.jpg);
 }
 
 .features {
@@ -995,7 +1020,6 @@
 }
 
 .func {
-  background-image: url(../img/func/bg.jpg);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
@@ -1035,34 +1059,6 @@
   margin-bottom: 70px;
 }
 
-.func-item:nth-child(2):after {
-  background-image: url(../img/func/1.svg);
-}
-
-.func-item:nth-child(3):after {
-  background-image: url(../img/func/2.svg);
-}
-
-.func-item:nth-child(4):after {
-  background-image: url(../img/func/3.svg);
-}
-
-.func-item:nth-child(5):after {
-  background-image: url(../img/func/4.svg);
-}
-
-.func-item:nth-child(6):after {
-  background-image: url(../img/func/5.svg);
-}
-
-.func-item:nth-child(7):after {
-  background-image: url(../img/func/6.svg);
-}
-
-.func-item:nth-child(8):after {
-  background-image: url(../img/func/7.svg);
-}
-
 .func-item h3 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -1074,9 +1070,8 @@
   max-width: calc(100% - 80px);
 }
 
-.func-item:after {
+.func-item img {
   position: absolute;
-  content: '';
   height: 110px;
   width: 110px;
   top: 50%;
@@ -1084,10 +1079,12 @@
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   left: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-  -webkit-background-size: contain;
-          background-size: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.func.lazyloaded {
+  background-image: url(../img/func/bg.jpg);
 }
 
 .call {
@@ -1285,7 +1282,7 @@
   font-size: 24px;
 }
 
-.product-right .content {
+.product-right .content p {
   color: #040404;
   font-size: 18px;
 }
@@ -2089,6 +2086,17 @@
   color: #040404;
 }
 
+.calc {
+  background-color: #F9F9F9;
+  padding-top: 50px;
+  padding-bottom: 70px;
+  color: #040404;
+}
+
+.calc .title {
+  color: #040404;
+}
+
 @media (max-width: 1910px) {
   .st-right video {
     width: 800px;
@@ -2222,7 +2230,7 @@
     font-size: 14px;
     color: #f9f9f9;
   }
-  .func-item::after {
+  .func-item img {
     height: 90px;
     width: 90px;
   }
@@ -2407,7 +2415,7 @@
     font-size: 14px;
     color: #f9f9f9;
   }
-  .func-item::after {
+  .func-item img {
     height: 70px;
     width: 70px;
   }
@@ -2515,6 +2523,10 @@
     width: 100%;
     padding-bottom: 70px;
     padding-top: 130px;
+  }
+  .st-left h1 {
+    max-width: 100%;
+    margin-bottom: 0px;
   }
   .st-left::after {
     position: absolute;
@@ -3054,7 +3066,11 @@
     padding-right: 15px;
   }
   .call-right-wrap-form {
-    position: static;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
     width: 100%;
   }
   .contacts .container {
@@ -3140,6 +3156,9 @@
 }
 
 @media (max-width: 578px) {
+  .single-news-content p, .single-news-content ul li, .single-news-content ol li {
+    font-size: 14px;
+  }
   .st-left h1 {
     font-size: 50px;
   }
@@ -3177,7 +3196,7 @@
     font-size: 18px;
     margin-bottom: 20px;
   }
-  .product-right .content {
+  .product-right .content p {
     font-size: 16px;
   }
   .product-right .price {
@@ -3319,7 +3338,7 @@
     font-size: 12px;
     max-width: 100%;
   }
-  .func-item::after {
+  .func-item img {
     height: 50px;
     width: 50px;
   }

@@ -412,7 +412,6 @@
 }
 
 .about {
-  background-image: url(../img/about/1.jpg);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
@@ -547,6 +546,10 @@
   -o-transition: 1s;
   transition: 1s;
   opacity: 1;
+}
+
+.about.lazyloaded {
+  background-image: url(../img/about/1.jpg);
 }
 
 .about-active .about-right-item img, .about-active .about-right-item h3, .about-active .about-right-item p {
@@ -1409,7 +1412,6 @@
     max-width: 100%;
   }
   .about {
-    background-image: url(../img/about-mob.jpg);
     -webkit-background-size: contain;
             background-size: contain;
     background-position: top;
@@ -1479,6 +1481,9 @@
   }
   .about-right-item div p {
     text-align: center;
+  }
+  .about.lazyloaded {
+    background-image: url(../img/about-mob.jpg);
   }
   .footer-footer {
     display: -webkit-box;

@@ -6,7 +6,7 @@
   padding-bottom: 100px
   .title
     color: $dark
-  &-btn
+  .alm-btn-wrap
     width: 100%
     display: flex
     justify-content: center
@@ -14,11 +14,14 @@
       height: 60px
       font-size: 20px
       width: 360px
+      &.done
+        display: none
   &-wrap
-    display: flex
-    flex-wrap: wrap
-    justify-content: flex-start
-    align-items: stretch
+    .alm-reveal
+      display: flex
+      flex-wrap: wrap
+      justify-content: flex-start
+      align-items: stretch
     &-item
       width: calc(25% - 15px)
       margin-bottom: 70px
@@ -59,7 +62,7 @@
       display: block
       margin: 20px
     p
-      font-size: 16px
+      font-size: 18px
       line-height: 1.6
       margin-bottom: 20px
     h2
@@ -98,6 +101,7 @@
       margin-top: 10px
       li
         margin-bottom: 15px
+        font-size: 18px
   .date
     font-size: 18px
     margin-bottom: 30px
@@ -147,12 +151,20 @@
     padding-top: 160px
     h1
       font-size: 140px
+      max-width: 50%
+      line-height: 1.1
+      margin-bottom: 50px
     p
       font-size: 34px 
       max-width: 500px
+@media (min-width: 1930px)
+  .st-right
+    video
+      right: calc(50% - 900px)
+    &-content
+      right: calc(50% - 950px)
 
 .lora
-  background-image: url(../img/asset/lora-bg.png)
   background-repeat: no-repeat
   background-size: cover
   background-position: bottom center
@@ -166,6 +178,9 @@
     p
       font-size: 32px
       margin-bottom: 70px
+.lora.lazyloaded
+  background-image: url(../img/asset/lora-bg.png)
+
 
 @keyframes lotTop
   0%
@@ -223,7 +238,6 @@
     transform: scale(1)
 
 .lot
-  background-image: url(../img/lot/lot-bg.jpg)
   background-repeat: no-repeat
   background-size: cover
   background-position: top center
@@ -272,16 +286,20 @@
   &-active
     .lot-top
       animation-name: lotTop
-      animation-duration: 5s
+      animation-duration: 2s
       animation-fill-mode: forwards
     .lot-center
       animation-name: lotCenter
-      animation-duration: 5s
+      animation-duration: 2s
       animation-fill-mode: forwards
     .lot-bot
       animation-name: lotBot
-      animation-duration: 5s
+      animation-duration: 2s
       animation-fill-mode: forwards
+
+.lot.lazyloaded
+  background-image: url(../img/lot/lot-bg.jpg)
+
 
 .features
   padding-top: 50px
@@ -507,7 +525,6 @@
           display: none
 
 .func
-  background-image: url(../img/func/bg.jpg)
   background-repeat: no-repeat
   background-size: cover
   background-position: center
@@ -527,45 +544,25 @@
     padding-left: 150px
     position: relative
     margin-bottom: 70px
-    &:nth-child(2)
-      &:after
-        background-image: url(../img/func/1.svg)
-    &:nth-child(3)
-      &:after
-        background-image: url(../img/func/2.svg)
-    &:nth-child(4)
-      &:after
-        background-image: url(../img/func/3.svg)
-    &:nth-child(5)
-      &:after
-        background-image: url(../img/func/4.svg)
-    &:nth-child(6)
-      &:after
-        background-image: url(../img/func/5.svg)
-    &:nth-child(7)
-      &:after
-        background-image: url(../img/func/6.svg)
-    &:nth-child(8)
-      &:after
-        background-image: url(../img/func/7.svg)
     h3
       font-size: 24px
       margin-bottom: 20px
     p
       font-size: 18px
       max-width: calc(100% - 80px)
-    &:after
+    img
       position: absolute
-      content: ''
       height: 110px
       width: 110px
       top: 50%
       transform: translateY(-50%)
       left: 0
-      background-repeat: no-repeat
-      background-position: center
-      background-size: contain
+      object-fit: contain
     
+.func.lazyloaded
+  background-image: url(../img/func/bg.jpg)
+
+
 .call
   display: flex
   justify-content: center
@@ -665,8 +662,9 @@
       margin-bottom: 30px
       font-size: 24px
     .content
-      color: $dark
-      font-size: 18px
+      p
+        color: $dark
+        font-size: 18px
     .logos
       display: flex
       justify-content: space-between
@@ -1099,7 +1097,13 @@
   .title
     color: $dark
     
-
+.calc
+  background-color: $light
+  padding-top: 50px
+  padding-bottom: 70px
+  color: $dark
+  .title
+    color: $dark
 
 
 

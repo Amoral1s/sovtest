@@ -63,24 +63,46 @@
           &:hover
             transition: .2s
             color: $hover
+      li.current-menu-item
+        a
+          color: $hover
 
 .header-menu
-  ul
+  ul#menu-menyu-v-shapke
     li.menu-item-has-children
       z-index: 100
-      &>ul
+      ul
         position: absolute
         display: flex
         background-color: #1E1F27
         width: 100vw
-        left: -300%
+        left: 0
         top: 89px
+        padding-bottom: 40px
         max-width: auto
         padding: 40px 170px 40px 170px
         justify-content: flex-start
         align-items: flex-start
         transition: .5s
         opacity: 0
+        height: 0
+        visibility: hidden
+        &::-webkit-scrollbar
+          width: 5px 
+          height: 5px
+        &::-webkit-scrollbar-button
+          background: transparent
+        &::-webkit-scrollbar-track
+          background-color: #1E1F27
+        &::-webkit-scrollbar-track-piece
+          background-color: #1E1F27
+        &::-webkit-scrollbar-thumb
+          height: 10px 
+          background-color: $light
+        &::-webkit-scrollbar-corner
+          background-color: #1E1F27
+        &::-webkit-resizer
+          background-color: red
         &::after
           position: absolute
           content: ''
@@ -88,30 +110,108 @@
           left: 0
           width: 100%
           height: 40px
-        &>li
+        li
           margin-right: 170px
-          &>a
+          margin-left: 0
+          display: block
+          a
             font-size: 24px
             font-weight: 600
-          &>ul
-            display: block
+          ul
+            display: none
+            position: relative
+            top: 0
+            left: 0
+            height: auto
             margin-top: 20px
+            padding-left: 0
+            padding-right: 0
+            padding-top: 0
+            padding-bottom: 50px
+            max-height: 280px
+            max-width: max-content
+            overflow-y: auto
+            background: transparent!important
             li
-              margin: 0 0 20px 0
+              margin: 0 0 15px 0
               a
                 font-size: 18px
                 font-weight: 400
                 opacity: .8
+                color: $light
+                &:hover
+                  color: $hover
+    li.nav-solutions
+      position: relative
+      ul
+        display: block
+        visibility: hidden
+        height: 0
+        width: max-content
+        background-color: $dark
+        left: 0
+        top: calc(100% + 30px)
+        padding: 20px 30px
+        opacity: 0
+        &::after
+          position: absolute
+          content: ''
+          height: 30px
+          width: 100%
+          top: -30px
+          left: 0
+        li
+          opacity: 0
+          transition: 0
+          display: block
+          a
+            font-weight: 400
+            font-size: 18px
+            display: block
+            opacity: .8
+            margin-bottom: 15px
+            width: max-content
+          &:last-child
+            a
+              margin-bottom: 0
+li.current-menu-item
+  a
+    color: $hover!important
 
-.menu-active
-  &>ul
-    left: 0!important
+.sol-active
+  ul
+    visibility: visible!important
+    height: 110px!important
     transition: .5s
     opacity: 1!important
+    padding: 20px 30px!important
+    li
+      transition: 0
+      opacity: 1!important
+.menu-active
+  ul
+    height: 400px!important
+    transition: .5s
+    opacity: 1!important
+    visibility: visible!important
+    li
+      a
+        padding-right: 15px!important
+      display: block
+      ul
+        padding: 0!important
+        background: transparent!important
+        display: block!important
+        li
+          ul
+            padding: 0!important
+            background: transparent!important
+            display: block!important
+
+   
 
 .offer
   min-height: 940px
-  background-image: url(../img/bg-offer.jpg)
   background-repeat: no-repeat
   background-size: cover
   background-position: top
@@ -132,12 +232,30 @@
     font-size: 34px
     margin-top: 10px
     overflow: hidden
+.offer.lazyloaded
+  background-image: url(../img/bg-offer.jpg)
+
 
 .mob-header,
 .mob-menu
   display: none
 
+.wpcf7-response-output
+  display: none!important
+.call-right-wrap-form
+  position: relative
+  .wpcf7 .ajax-loader
+    position: absolute
+    bottom: 67px
+.popup
+  .wpcf7 .ajax-loader
+    position: absolute
+    bottom: 67px
 
+
+form.invalid
+  input.wpcf7-validates-as-required
+    box-shadow: 1px 1px 5px rgba(red, .5)
 
 @import "header/_media1200"
 @import "header/_media992"
