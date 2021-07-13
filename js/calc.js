@@ -1,4 +1,172 @@
 jQuery(document).ready(function ($) {
+  $.jqplot.config.enablePlugins = true;
+
+  var s1 = [1, 6, 7, 10];
+  var ticks = [
+  [1, "12:00"], 
+  [2, "10:00"], 
+  [3, "08:00"], 
+  [4, "06:00"], 
+  [5, "04:00"],
+  [6, "02:00"], 
+  [7, "00:00"], 
+  [8, "22:00"], 
+  [9, "20:00"], 
+  [10, "18:00"],
+  [11, "16:00"], 
+  [12, "14:00"], 
+  [13, "12:00"]];
+  var botTicks = [
+  [1, "Янв."], 
+  [2, "Фев."], 
+  [3, "Март"], 
+  [4, "Апр."], 
+  [5, "Май"],
+  [6, "Июнь"], 
+  [7, "Июль"], 
+  [8, "Авг."], 
+  [9, "Сент."], 
+  [10, "Окт."],
+  [11, "Но."], 
+  [12, "Дек."]];
+  var labels = ["Восход", "Закат", "Полночь"]
+  /* 
+  [xstart, ystart], [cp1x, cp1y], [cp2x, cp2y], [xend, yend] 
+  [xstart, ystart], [cp1x, cp1y, cp2x, cp2y, xend, yend]
+  */
+  var line1 = [
+    [1, 10], [9, 7, 8, 8, 12, 10]
+  ];
+  var line2 = [
+    [1, 3], [4, 6, 8, 8, 12, 3]
+  ];
+  
+ 
+
+  plot1 = $.jqplot("chart1", [line1, line2], {
+    animate: true,
+    // Will animate plot on calls to plot1.replot({resetAxes:true})
+    animateReplot: true,
+    title:'Восход / Закат',
+    fillBetween: {
+      // series1: Required, if missing won't fill.
+      series1: [1, 2],
+      // series2: Required, if  missing won't fill.
+      // color: Optional, defaults to fillColor of series1.
+      color: "rgba(227, 167, 111, 0.7)",
+      // baseSeries:  Optional.  Put fill on a layer below this series
+      // index.  Defaults to 0 (first series).  If an index higher than 0 is
+      // used, fill will hide series below it.
+      baseSeries: 0,
+      // fill:  Optional, defaults to true.  False to turn off fill.
+      fill: true
+    },
+    axesDefaults: {
+      labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+    },
+    seriesDefaults: {renderer:$.jqplot.BezierCurveRenderer},
+    legend: {show: true, labels: labels},
+    axes:{
+      xaxis:{
+        ticks: botTicks
+      },
+      yaxis:{
+        ticks: ticks
+      }
+    },
+    renderer:$.jqplot.CanvasAxisTickRenderer, 
+    rendererOptions: {
+      // set to true to replot when toggling series on/off
+      // set to an options object to pass in replot options.
+      seriesToggle: 'normal',
+      seriesToggleReplot: {resetAxes: true}
+  }
+         
+  });
+
+  var blocks = [
+    ['01', 6.5],
+    ['02', 6.5],
+    ['03', 6.5],
+    ['04', 6],
+    ['05', 5.5],
+    ['06', 5.5],
+    ['07', 5.5],
+    ['08', 5],
+    ['09', 2],
+    ['10', 2],
+    ['11', 2],
+    ['12', 2],
+    ['13', 3],
+    ['14', 5.5],
+    ['15', 5.5],
+    ['16', 5.5],
+    ['17', 5.5]
+   
+  ];
+
+  var ticks2 = [
+    ["0%"], 
+    ["20%"], 
+    ["40%"],
+    ["60%"], 
+    ["80%"], 
+    ["100%"],];
+    var botTicks2 = [
+    ["Закат"], 
+    ["17"], 
+    ["18"], 
+    ["19"], 
+    ["20"],
+    ["21"], 
+    ["22"], 
+    ["23"], 
+    ["00"], 
+    [ "01"],
+    [ "02"], 
+    [ "03"], 
+    [ "04"], 
+    [ "05"], 
+    [ "06"], 
+    [ "07"], 
+    [ "08"]
+  ];
+ 
+    $('#chart2').jqplot([blocks], {
+        animate: true,
+        // Will animate plot on calls to plot1.replot({resetAxes:true})
+        animateReplot: true,
+        title:'Димирование',
+        seriesDefaults:{
+            renderer:$.jqplot.BarRenderer,
+            rendererOptions: {
+              smooth: true
+          }
+        },
+        legend: {show: false},
+        seriesColors:['#74CADB'],
+        axes:{
+          xaxis:{
+            renderer: $.jqplot.CategoryAxisRenderer,
+            ticks: botTicks2,
+            pad: 1,
+            maxPad: 0
+          },
+          yaxis:{
+            renderer: $.jqplot.CategoryAxisRenderer,
+            ticks: ticks2,
+            tickOptions: {
+              suffix: '%'
+            },
+            pad: 0,
+            maxPad: 0
+          }
+        },
+        highlighter: { show: false }
+    });
+
+
+
   $('.add').on('click', function() {
     let newRow = document.createElement('div');
     const rowWrap = document.querySelector('.section-one');

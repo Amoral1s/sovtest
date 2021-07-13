@@ -1,4 +1,15 @@
 @import 'vars'
+#chart2, #chart1
+  .jqplot-point-label
+    display: none!important
+.calc-city-wrap-table
+  overflow-y: auto
+
+#chart1, #chart2
+  width: 100%
+  max-width: 1100px
+  margin-left: auto
+  margin-right: auto
 
 .calc
   background-color: #F9F9F9
@@ -246,3 +257,254 @@
         max-width: 100%
         border-radius: 0px  
         border: 1px solid #C4C4C4
+
+
+
+
+
+
+@media (max-width: 1200px)
+  .jqplot-table-legend
+    top: 50px!important
+    left: 40px!important
+  #chart1, #chart2
+    padding-left: 50px
+    overflow-y: scroll
+@media (max-width: 992px)
+  .jqplot-xaxis-tick,
+  .jqplot-yaxis-tick
+    font-size: 10px
+  #chart1, #chart2
+    max-height: 400px
+    padding-left: 0
+  .calc-city-wrap
+  .calc
+    padding-top: 120px
+    position: relative
+    &-eco
+      &-wrap
+        flex-wrap: wrap
+        justify-content: center
+        margin-bottom: 0
+        &-item
+          width: 33.3%
+          margin-bottom: 30px
+    &-dim
+      &-profile
+        div
+          max-width: 300px
+    &-on
+      &-wrap
+        flex-direction: column
+        align-items: flex-start
+        &-item
+          margin-bottom: 20px
+          margin-right: 0
+          max-width: 300px
+    label
+      font-size: 13px!important
+    &-city
+      &-wrap
+        &-input
+          flex-direction: column
+          align-items: flex-start
+          &-select
+            max-width: 300px
+          &-map
+            margin-left: 0
+            b, p
+              font-size: 16px
+    &-wrap
+      margin-top: 50px
+      h2
+        font-size: 28px
+        margin-bottom: 0
+      &>p
+        font-size: 16px
+        margin-bottom: 20px
+    .container
+      h3
+        font-size: 28px
+        margin-bottom: 0
+      &>p
+        font-size: 16px
+        margin-bottom: 40px
+    .title
+      margin-bottom: 40px
+    .text
+      p
+        font-size: 16px
+        margin-bottom: 30px
+    &::after
+      position: absolute
+      content: ''
+      height: 70px
+      width: 100%
+      background-color: $dark
+      top: 0
+      left: 0
+
+
+@media (max-width: 768px)
+ 
+  .calc-city-wrap-input-map
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: flex-start
+    b
+      width: 100%
+    p
+      width: 100%
+      margin-bottom: 20px
+  .calc
+    &-form
+      &-row
+        &-item
+          &:nth-child(1)
+            width: 200px
+            &::after
+              top: 39px
+              width: 10px
+          &:nth-child(2)
+            width: 80px
+          &:nth-child(3)
+            width: 100px
+          &:nth-child(4)
+            width: 25%
+          input, select
+            height: 40px
+            font-size: 14px
+          .button
+            font-size: 14px
+            height: 40px
+
+@media (max-width: 578px)
+  #chart2
+  .jqplot-xaxis-tick
+    font-size: 8px
+  .calc-city-wrap-input
+    margin-bottom: 0
+  #chart1, #chart2
+    max-height: 300px
+    padding-left: 0
+  .calc-eco
+    padding: 40px 0
+  .calc-dim
+    padding: 40px 0
+  .calc-on
+    padding: 40px 0
+  .calc-eco-wrap
+    flex-direction: column
+    align-items: center
+    &-item
+      display: flex
+      flex-direction: row
+      width: 100%
+      justify-content: space-between
+      align-items: center
+      div
+        font-size: 14px
+        margin: 0
+        width: calc(100% - 100px)
+        max-width: 100%
+      b
+        font-size: 16px
+        margin: 0 15px
+        width: 80px
+        text-align: end
+      span
+        margin: 0
+        font-size: 16px
+        width: 135px
+      img
+        max-width: 50px
+        margin-right: 15px
+  .calc-city-wrap-input-select div,
+  .calc-city-wrap-input-select,
+  .calc-city-wrap-input,
+  .calc-on-wrap-item,
+  .calc-on-wrap-item select, .calc-on-wrap-item input,
+  .calc-dim-profile select, .calc-dim-profile input,
+  .calc-dim-profile div
+    width: 100%
+    max-width: 100%
+  .calc-city-wrap-input-select div input, .calc-city-wrap-input-select div select
+    width: 100%
+    max-width: 100%
+  .calc
+    &-city
+      padding-top: 30px
+      padding-bottom: 50px
+    .container
+      h3
+        font-size: 24px
+      &>p
+        font-size: 14px
+        margin-bottom: 20px
+    &-kw
+      padding: 40px 0
+    &>.container
+      padding-bottom: 50px
+    label
+      font-size: 10px!important
+    &-wrap
+      margin-top: 30px
+      h2
+        font-size: 24px
+      &>p
+        font-size: 14px
+    &-form
+      &-row
+        margin-bottom: 5px
+        &-item
+          padding-right: 5px
+          &:nth-child(1)
+            width: 160px
+            &::after
+              top: 39px
+              right: 15px
+              width: 10px
+          &:nth-child(2)
+            width: 60px
+          &:nth-child(3)
+            width: 80px
+          &:nth-child(4)
+            width: 25%
+            padding-right: 0
+          input, select
+            height: 40px
+            font-size: 12px
+          .button
+            font-size: 14px
+            height: 40px
+@media (max-width: 360px)
+  .calc
+    label
+      font-size: 8px!important
+    &-form
+      &-row
+        margin-bottom: 5px
+        &-item
+          padding-right: 5px
+          &:nth-child(1)
+            width: 140px
+            &::after
+              top: 36px
+              right: 15px
+              width: 8px
+          &:nth-child(2)
+            width: 40px
+          &:nth-child(3)
+            width: 60px
+          &:nth-child(4)
+            width: 25%
+            padding-right: 0
+          input, select
+            padding-left: 5px
+            height: 35px
+            font-size: 12px
+          .button
+            font-size: 12px
+            height: 35px
+

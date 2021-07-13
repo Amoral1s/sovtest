@@ -1,4 +1,19 @@
 @charset "UTF-8";
+#chart2 .jqplot-point-label, #chart1 .jqplot-point-label {
+  display: none !important;
+}
+
+.calc-city-wrap-table {
+  overflow-y: auto;
+}
+
+#chart1, #chart2 {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .calc {
   background-color: #F9F9F9;
   padding-bottom: 0;
@@ -406,4 +421,361 @@
   -webkit-border-radius: 0px;
           border-radius: 0px;
   border: 1px solid #C4C4C4;
+}
+
+@media (max-width: 1200px) {
+  .jqplot-table-legend {
+    top: 50px !important;
+    left: 40px !important;
+  }
+  #chart1, #chart2 {
+    padding-left: 50px;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 992px) {
+  .jqplot-xaxis-tick,
+  .jqplot-yaxis-tick {
+    font-size: 10px;
+  }
+  #chart1, #chart2 {
+    max-height: 400px;
+    padding-left: 0;
+  }
+  .calc {
+    padding-top: 120px;
+    position: relative;
+  }
+  .calc-eco-wrap {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 0;
+  }
+  .calc-eco-wrap-item {
+    width: 33.3%;
+    margin-bottom: 30px;
+  }
+  .calc-dim-profile div {
+    max-width: 300px;
+  }
+  .calc-on-wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .calc-on-wrap-item {
+    margin-bottom: 20px;
+    margin-right: 0;
+    max-width: 300px;
+  }
+  .calc label {
+    font-size: 13px !important;
+  }
+  .calc-city-wrap-input {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .calc-city-wrap-input-select {
+    max-width: 300px;
+  }
+  .calc-city-wrap-input-map {
+    margin-left: 0;
+  }
+  .calc-city-wrap-input-map b, .calc-city-wrap-input-map p {
+    font-size: 16px;
+  }
+  .calc-wrap {
+    margin-top: 50px;
+  }
+  .calc-wrap h2 {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+  .calc-wrap > p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .calc .container h3 {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+  .calc .container > p {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .calc .title {
+    margin-bottom: 40px;
+  }
+  .calc .text p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .calc::after {
+    position: absolute;
+    content: '';
+    height: 70px;
+    width: 100%;
+    background-color: #040404;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .calc-city-wrap-input-map {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .calc-city-wrap-input-map b {
+    width: 100%;
+  }
+  .calc-city-wrap-input-map p {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .calc-form-row-item:nth-child(1) {
+    width: 200px;
+  }
+  .calc-form-row-item:nth-child(1)::after {
+    top: 39px;
+    width: 10px;
+  }
+  .calc-form-row-item:nth-child(2) {
+    width: 80px;
+  }
+  .calc-form-row-item:nth-child(3) {
+    width: 100px;
+  }
+  .calc-form-row-item:nth-child(4) {
+    width: 25%;
+  }
+  .calc-form-row-item input, .calc-form-row-item select {
+    height: 40px;
+    font-size: 14px;
+  }
+  .calc-form-row-item .button {
+    font-size: 14px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 578px) {
+  .jqplot-xaxis-tick {
+    font-size: 8px;
+  }
+  .calc-city-wrap-input {
+    margin-bottom: 0;
+  }
+  #chart1, #chart2 {
+    max-height: 300px;
+    padding-left: 0;
+  }
+  .calc-eco {
+    padding: 40px 0;
+  }
+  .calc-dim {
+    padding: 40px 0;
+  }
+  .calc-on {
+    padding: 40px 0;
+  }
+  .calc-eco-wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .calc-eco-wrap-item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .calc-eco-wrap-item div {
+    font-size: 14px;
+    margin: 0;
+    width: -webkit-calc(100% - 100px);
+    width: calc(100% - 100px);
+    max-width: 100%;
+  }
+  .calc-eco-wrap-item b {
+    font-size: 16px;
+    margin: 0 15px;
+    width: 80px;
+    text-align: end;
+  }
+  .calc-eco-wrap-item span {
+    margin: 0;
+    font-size: 16px;
+    width: 135px;
+  }
+  .calc-eco-wrap-item img {
+    max-width: 50px;
+    margin-right: 15px;
+  }
+  .calc-city-wrap-input-select div,
+  .calc-city-wrap-input-select,
+  .calc-city-wrap-input,
+  .calc-on-wrap-item,
+  .calc-on-wrap-item select, .calc-on-wrap-item input,
+  .calc-dim-profile select, .calc-dim-profile input,
+  .calc-dim-profile div {
+    width: 100%;
+    max-width: 100%;
+  }
+  .calc-city-wrap-input-select div input, .calc-city-wrap-input-select div select {
+    width: 100%;
+    max-width: 100%;
+  }
+  .calc-city {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  .calc .container h3 {
+    font-size: 24px;
+  }
+  .calc .container > p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .calc-kw {
+    padding: 40px 0;
+  }
+  .calc > .container {
+    padding-bottom: 50px;
+  }
+  .calc label {
+    font-size: 10px !important;
+  }
+  .calc-wrap {
+    margin-top: 30px;
+  }
+  .calc-wrap h2 {
+    font-size: 24px;
+  }
+  .calc-wrap > p {
+    font-size: 14px;
+  }
+  .calc-form-row {
+    margin-bottom: 5px;
+  }
+  .calc-form-row-item {
+    padding-right: 5px;
+  }
+  .calc-form-row-item:nth-child(1) {
+    width: 160px;
+  }
+  .calc-form-row-item:nth-child(1)::after {
+    top: 39px;
+    right: 15px;
+    width: 10px;
+  }
+  .calc-form-row-item:nth-child(2) {
+    width: 60px;
+  }
+  .calc-form-row-item:nth-child(3) {
+    width: 80px;
+  }
+  .calc-form-row-item:nth-child(4) {
+    width: 25%;
+    padding-right: 0;
+  }
+  .calc-form-row-item input, .calc-form-row-item select {
+    height: 40px;
+    font-size: 12px;
+  }
+  .calc-form-row-item .button {
+    font-size: 14px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .calc label {
+    font-size: 8px !important;
+  }
+  .calc-form-row {
+    margin-bottom: 5px;
+  }
+  .calc-form-row-item {
+    padding-right: 5px;
+  }
+  .calc-form-row-item:nth-child(1) {
+    width: 140px;
+  }
+  .calc-form-row-item:nth-child(1)::after {
+    top: 36px;
+    right: 15px;
+    width: 8px;
+  }
+  .calc-form-row-item:nth-child(2) {
+    width: 40px;
+  }
+  .calc-form-row-item:nth-child(3) {
+    width: 60px;
+  }
+  .calc-form-row-item:nth-child(4) {
+    width: 25%;
+    padding-right: 0;
+  }
+  .calc-form-row-item input, .calc-form-row-item select {
+    padding-left: 5px;
+    height: 35px;
+    font-size: 12px;
+  }
+  .calc-form-row-item .button {
+    font-size: 12px;
+    height: 35px;
+  }
 }

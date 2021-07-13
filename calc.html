@@ -168,7 +168,7 @@
           </div>
         </div>
         <div class="calc-city-wrap-table">
-          График
+          <div id="chart1" style="height: 600px;"></div> 
         </div>
       </div>
     </div>
@@ -215,7 +215,7 @@
         </div>
       </div>
       <div class="calc-dim-table">
-        График 2
+        <div id="chart2" style="height: 500px;"></div> 
       </div>
     </div>
   </div>
@@ -392,14 +392,22 @@
   
 
   <script src="js/jq-3-4-1.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-  <script src="js/libs.min.js"></script>
-  <!-- <script src="js/fullpage.js"></script> -->
-  <script src="js/common.js"></script>
+  <!-- <script src="js/common.js"></script> -->
+
+  <script type="text/javascript" src="jquery.jqplot.js"></script>
+  <script type="text/javascript" src="plugins/jqplot.BezierCurveRenderer.js"></script>
+  <script type="text/javascript" src="plugins/jqplot.dateAxisRenderer.js"></script>
+  <script type="text/javascript" src="plugins/jqplot.canvasTextRenderer.js"></script>
+  <script type="text/javascript" src="plugins/jqplot.categoryAxisRenderer.js"></script>
+  <script type="text/javascript" src="plugins/jqplot.pointLabels.js"></script>
+  <script type="text/javascript" src="plugins/jqplot.barRenderer.js"></script>
+  <script type="text/javascript" src="plugins/jqplot.canvasAxisLabelRenderer.js"></script>
+  <link rel="stylesheet" type="text/css" href="jquery.jqplot.css" />
 
 
   <script src="js/calc.js"></script>
+
+
   
 </body>
 </html>
