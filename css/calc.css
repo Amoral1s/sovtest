@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.jqplot-series-canvas-none {
+  display: none !important;
+}
+
 #chart2 .jqplot-point-label, #chart1 .jqplot-point-label {
   display: none !important;
 }
@@ -751,6 +755,9 @@
   }
   #chart1, #chart2 {
     max-width: 800px;
+  }
+  .calc-dim-profile {
+    margin-bottom: 30px;
   }
 }
 

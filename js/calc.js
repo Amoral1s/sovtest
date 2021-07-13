@@ -40,10 +40,10 @@ jQuery(document).ready(function ($) {
   var line2 = [
     [1, 3], [4, 6, 8, 8, 12, 3]
   ];
-  
+  var none = [0, 0];
  
 
-  plot1 = $.jqplot("chart1", [line1, line2], {
+  plot1 = $.jqplot("chart1", [none, none], {
     animate: true,
     // Will animate plot on calls to plot1.replot({resetAxes:true})
     animateReplot: true,
@@ -82,6 +82,53 @@ jQuery(document).ready(function ($) {
       seriesToggleReplot: {resetAxes: true}
   }
          
+  });
+
+  const chart1Select = document.querySelector('.calc-city-wrap-input-select select');
+
+  chart1Select.addEventListener('change', () => {
+    $('#chart1 table.jqplot-table-legend').remove();
+    $('#chart1 canvas').remove();
+    plot1 = $.jqplot("chart1", [line1, line2], {
+      animate: true,
+      // Will animate plot on calls to plot1.replot({resetAxes:true})
+      animateReplot: true,
+      title:'Восход / Закат',
+      fillBetween: {
+        // series1: Required, if missing won't fill.
+        series1: [1, 2],
+        // series2: Required, if  missing won't fill.
+        // color: Optional, defaults to fillColor of series1.
+        color: "rgba(227, 167, 111, 0.7)",
+        // baseSeries:  Optional.  Put fill on a layer below this series
+        // index.  Defaults to 0 (first series).  If an index higher than 0 is
+        // used, fill will hide series below it.
+        baseSeries: 0,
+        // fill:  Optional, defaults to true.  False to turn off fill.
+        fill: true
+      },
+      axesDefaults: {
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+      },
+      seriesDefaults: {renderer:$.jqplot.BezierCurveRenderer},
+      legend: {show: true, labels: labels},
+      axes:{
+        xaxis:{
+          ticks: botTicks
+        },
+        yaxis:{
+          ticks: ticks
+        }
+      },
+      renderer:$.jqplot.CanvasAxisTickRenderer, 
+      rendererOptions: {
+        // set to true to replot when toggling series on/off
+        // set to an options object to pass in replot options.
+        seriesToggle: 'normal',
+        seriesToggleReplot: {resetAxes: true}
+    }
+           
+    });
   });
 
   var blocks = [
@@ -131,8 +178,12 @@ jQuery(document).ready(function ($) {
     [ "07"], 
     [ "08"]
   ];
+
+  var blockNone = [0, 0];
+
+  
  
-    $('#chart2').jqplot([blocks], {
+    $('#chart2').jqplot([blockNone], {
         animate: true,
         // Will animate plot on calls to plot1.replot({resetAxes:true})
         animateReplot: true,
@@ -163,6 +214,44 @@ jQuery(document).ready(function ($) {
           }
         },
         highlighter: { show: false }
+    });
+
+    const blockSelect = document.querySelector('.calc-dim-profile select');
+
+    blockSelect.addEventListener('change', () => {
+      $('#chart2 canvas').remove();
+      $('#chart2').jqplot([blocks], {
+        animate: true,
+        // Will animate plot on calls to plot1.replot({resetAxes:true})
+        animateReplot: true,
+        title:'Димирование',
+        seriesDefaults:{
+            renderer:$.jqplot.BarRenderer,
+            rendererOptions: {
+              smooth: true
+          }
+        },
+        legend: {show: false},
+        seriesColors:['#74CADB'],
+        axes:{
+          xaxis:{
+            renderer: $.jqplot.CategoryAxisRenderer,
+            ticks: botTicks2,
+            pad: 1,
+            maxPad: 0
+          },
+          yaxis:{
+            renderer: $.jqplot.CategoryAxisRenderer,
+            ticks: ticks2,
+            tickOptions: {
+              suffix: '%'
+            },
+            pad: 0,
+            maxPad: 0
+          }
+        },
+        highlighter: { show: false }
+    });
     });
 
 
@@ -215,5 +304,15 @@ jQuery(document).ready(function ($) {
     })
 
   });
+
+
+
+
+
+
+
+
+
+  
 
 });
