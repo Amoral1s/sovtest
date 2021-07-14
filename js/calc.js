@@ -89,6 +89,8 @@ jQuery(document).ready(function ($) {
   chart1Select.addEventListener('change', () => {
     $('#chart1 table.jqplot-table-legend').remove();
     $('#chart1 canvas').remove();
+    $('#chart1 .jqplot-axis').remove();
+    
     plot1 = $.jqplot("chart1", [line1, line2], {
       animate: true,
       // Will animate plot on calls to plot1.replot({resetAxes:true})
