@@ -1,161 +1,236 @@
 jQuery(document).ready(function ($) {
-  $.jqplot.config.enablePlugins = true;
 
-  var s1 = [1, 6, 7, 10];
-  var ticks = [
-  [1, "12:00"], 
-  [2, "10:00"], 
-  [3, "08:00"], 
-  [4, "06:00"], 
-  [5, "04:00"],
-  [6, "02:00"], 
-  [7, "00:00"], 
-  [8, "22:00"], 
-  [9, "20:00"], 
-  [10, "18:00"],
-  [11, "16:00"], 
-  [12, "14:00"], 
-  [13, "12:00"]];
-  var botTicks = [
-  [1, "Янв."], 
-  [2, "Фев."], 
-  [3, "Март"], 
-  [4, "Апр."], 
-  [5, "Май"],
-  [6, "Июнь"], 
-  [7, "Июль"], 
-  [8, "Авг."], 
-  [9, "Сент."], 
-  [10, "Окт."],
-  [11, "Но."], 
-  [12, "Дек."]];
-  var labels = ["Восход", "Закат", "Полночь"]
-  /* 
-  [xstart, ystart], [cp1x, cp1y], [cp2x, cp2y], [xend, yend] 
-  [xstart, ystart], [cp1x, cp1y, cp2x, cp2y, xend, yend]
-  */
-  var line1 = [
-    [1, 10], [9, 7, 8, 8, 12, 10]
-  ];
-  var line2 = [
-    [1, 3], [4, 6, 8, 8, 12, 3]
-  ];
-  var none = [0, 0];
- 
-
-  plot1 = $.jqplot("chart1", [none, none], {
-    animate: true,
-    // Will animate plot on calls to plot1.replot({resetAxes:true})
-    animateReplot: true,
-    title:'Восход / Закат',
-    fillBetween: {
-      // series1: Required, if missing won't fill.
-      series1: [1, 2],
-      // series2: Required, if  missing won't fill.
-      // color: Optional, defaults to fillColor of series1.
-      color: "rgba(227, 167, 111, 0.7)",
-      // baseSeries:  Optional.  Put fill on a layer below this series
-      // index.  Defaults to 0 (first series).  If an index higher than 0 is
-      // used, fill will hide series below it.
-      baseSeries: 0,
-      // fill:  Optional, defaults to true.  False to turn off fill.
-      fill: true
+  const select = document.querySelector('.calc-city-wrap-input-select select.js-select2'),
+        latitude = document.querySelector('.latitude'),
+        longitude = document.querySelector('.longitude'),
+        textsunset = document.querySelector('.sunset'),
+        textsunrise = document.querySelector('.sunrise');
+  
+  $.ajax({
+    /* url: "../city/city.csv", */
+    url: "https://amoral1s.github.io/sovtest/city/city.csv",
+    async: false,
+    success: function (csv) {
+        data = $.csv.toObjects(csv);
     },
-    axesDefaults: {
-      labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-    },
-    seriesDefaults: {renderer:$.jqplot.BezierCurveRenderer},
-    legend: {show: true, labels: labels},
-    axes:{
-      xaxis:{
-        ticks: botTicks
-      },
-      yaxis:{
-        ticks: ticks
-      }
-    },
-    renderer:$.jqplot.CanvasAxisTickRenderer, 
-    rendererOptions: {
-      // set to true to replot when toggling series on/off
-      // set to an options object to pass in replot options.
-      seriesToggle: 'normal',
-      seriesToggleReplot: {resetAxes: true}
-  }
-         
+    dataType: "text",
+    complete: function () {
+        // call a function on complete 
+    }
   });
 
-  const chart1Select = document.querySelector('.calc-city-wrap-input-select select');
+
+  data.forEach((elem, i) => {
+    let newOption = document.createElement('option');
+    newOption.value = i;
+    newOption.dataset.latitude = elem['geo_lat'];
+    newOption.dataset.longitude = elem['geo_lon'];
+    newOption.dataset.sunset = elem['timezone'];
+    newOption.textContent = elem['address'];
+    select.appendChild(newOption);
+  });
+
+  
+
+  $('.js-select2').select2({
+		placeholder: "Выберите город",
+		maximumSelectionLength: 2,
+		language: "ru"
+	});
+
+  var chartSun;
+  var times = SunCalc.getTimes(new Date());
+  var currentdate = new Date();
+  var chart_data = {
+    "zero": [[currentdate.getFullYear()+"-01-01",0], [currentdate.getFullYear()+"-12-31",0]], 
+    "sunset": [[currentdate.getFullYear()+"-01-01", 500], [currentdate.getFullYear()+"-6-31", 200], [currentdate.getFullYear()+"-12-31", 500]], 
+    "sunrise": [[currentdate.getFullYear()+"-01-01", -500], [currentdate.getFullYear()+"-6-31", -200], [currentdate.getFullYear()+"-12-31", -500]]
+  };
+  //ticks: [['-1200', '12:00'], ['-1100', '11:00'], ['-1000', '10:00'], ['-900', '09:00'], ['-800', '08:00'], ['-700', '07:00'], ['-600', '06:00'], ['-500', '05:00'], ['-400', '04:00'], ['-300', '03:00'], ['-200', '02:00'], ['-100', '01:00'], ['0', '00:00'], ['100', '23:00'], ['200', '22:00'], ['300', '21:00'], ['400', '20:00'], ['500', '19:00'], ['600', '18:00'], ['700', '17:00'], ['800', '16:00'], ['900', '15:00'], ['1000', '14:00'], ['1100', '13:00'], ['1200', '12:00']],
+  	//var ticks_data = ['12', '14', '16', '18', '20', '22', '24', '2', '4', '6', '8', '10', 'sunset'];
+  var timesSunrise;
+  var timesSunset;
+  console.log(chart_data)
 
   $('.js-select2').on('select2:select', () => {
-    $('#chart1 table.jqplot-table-legend').remove();
-    $('#chart1 canvas').remove();
-    $('#chart1 .jqplot-axis').remove();
     
-    plot1 = $.jqplot("chart1", [line1, line2], {
-      animate: true,
-      // Will animate plot on calls to plot1.replot({resetAxes:true})
-      animateReplot: true,
-      title:'Восход / Закат',
-      fillBetween: {
+
+    var times = SunCalc.getTimes(new Date(), 
+    select.options[select.selectedIndex].dataset.latitude, 
+    select.options[select.selectedIndex].dataset.longitude);
+
+    var timesSunrise = (times.sunrise.getHours()<10?'0':'') 
+    + times.sunrise.getHours() 
+    + ':' + (times.sunrise.getMinutes()<10?'0':'') 
+    +  times.sunrise.getMinutes();
+
+    var timesSunset = times.sunset.getHours() 
+    + (times.sunset.getHours()<10?'0':'') 
+    + ':' + (times.sunset.getMinutes()<10?'0':'') 
+    +  times.sunset.getMinutes();
+
+    latitude.textContent = select.options[select.selectedIndex].dataset.latitude;
+    longitude.textContent = select.options[select.selectedIndex].dataset.longitude;
+    textsunset.textContent = timesSunset;
+    textsunrise.textContent = timesSunrise;
+
+    /* chart_data["sunset"] = +timesSunset;
+    chart_data["sunrise"] = +timesSunrise; */
+    chart_data["sunset"] = [[currentdate.getFullYear()+"-01-01", 500], [currentdate.getFullYear()+"-6-31", 200], [currentdate.getFullYear()+"-12-31", 500]];
+    chart_data["sunrise"] = [[currentdate.getFullYear()+"-01-01", -500], [currentdate.getFullYear()+"-6-31", -200], [currentdate.getFullYear()+"-12-31", -500]];
+
+    console.log(timesSunset)
+    console.log(timesSunrise)
+      
+    drawChartSun();
+
+  });
+
+
+
+function drawChartSun()
+{
+	jQuery(document).ready(function($)
+	{
+		if (chartSun)
+			chartSun.destroy();
+
+		chartSun = $.jqplot('chart1', [chart_data["zero"], chart_data["sunset"], chart_data["sunrise"]], {
+			title:'Восход / Закат',
+			animate : true,
+			seriesDefaults: {
+				//color: '#09c',
+				showMarker: false,
+				//fill: true,
+				rendererOptions: {
+					smooth: true,
+				},
+				shadow: false,
+				lineWidth: 4
+			},
+
+			seriesColors:['#000000', '#6DA4EF', '#6DA4EF'],
+
+			series: [
+					{lineWidth: 1}
+			],
+
+			legend: {
+				show: true,
+				placement: 'outsideGrid',
+				labels: ['Полночь', 'Закат', 'Восход'],
+				location: 'ne',
+				rowSpacing: '0px'
+			},
+
+			grid: {
+				borderWidth: 1.0,
+				shadow: false,
+			},
+
+			fillBetween: {
         // series1: Required, if missing won't fill.
         series1: [1, 2],
         // series2: Required, if  missing won't fill.
+        series2: [2, 1],
         // color: Optional, defaults to fillColor of series1.
-        color: "rgba(227, 167, 111, 0.7)",
+        color: "#6DA4EF",
         // baseSeries:  Optional.  Put fill on a layer below this series
         // index.  Defaults to 0 (first series).  If an index higher than 0 is
         // used, fill will hide series below it.
-        baseSeries: 0,
+        baseSeries: 1,
         // fill:  Optional, defaults to true.  False to turn off fill.
         fill: true
-      },
-      axesDefaults: {
-        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-      },
-      seriesDefaults: {renderer:$.jqplot.BezierCurveRenderer},
-      legend: {show: true, labels: labels},
-      axes:{
-        xaxis:{
-          ticks: botTicks
-        },
-        yaxis:{
-          ticks: ticks
-        }
-      },
-      renderer:$.jqplot.CanvasAxisTickRenderer, 
-      rendererOptions: {
-        // set to true to replot when toggling series on/off
-        // set to an options object to pass in replot options.
-        seriesToggle: 'normal',
-        seriesToggleReplot: {resetAxes: true}
-    }
-           
-    });
-  });
+			},
 
-  var blocks = [
-    ['01', 5.5],
-    ['02', 5.5],
-    ['03', 5.5],
-    ['04', 5],
-    ['05', 4.5],
-    ['06', 4.5],
-    ['07', 4.5],
-    ['08', 4],
-    ['09', 1],
-    ['10', 1],
-    ['11', 1],
-    ['12', 1],
-    ['13', 2],
-    ['14', 4.5],
-    ['15', 4.5],
-    ['16', 4.5],
-    ['17', 4.5]
-  ];
+/*			fillBetween: {
+				series1: 2,
+				series2: 0,
+				//color: "rgba(227, 167, 111, 0.7)",
+				baseSeries: 0,
+				fill: true
+			},*/
 
+			axes:{
+				xaxis:{
+					renderer:$.jqplot.DateAxisRenderer,
+					tickOptions:{formatString:'%b'},
+					tickInterval:'1 month',
+					pad: 0,
+					padMin: 0,
+					padMax: 0,
+				},
 
+				yaxis:{
+					//ticks: [['-1200', '12:00'], ['-1100', '11:00'], ['-1000', '10:00'], ['-900', '09:00'], ['-800', '08:00'], ['-700', '07:00'], ['-600', '06:00'], ['-500', '05:00'], ['-400', '04:00'], ['-300', '03:00'], ['-200', '02:00'], ['-100', '01:00'], ['0', '00:00'], ['100', '23:00'], ['200', '22:00'], ['300', '21:00'], ['400', '20:00'], ['500', '19:00'], ['600', '18:00'], ['700', '17:00'], ['800', '16:00'], ['900', '15:00'], ['1000', '14:00'], ['1100', '13:00'], ['1200', '12:00']],
+					ticks: [['-720', '12:00'], ['-600', '10:00'], ['-480', '08:00'], ['-360', '06:00'], ['-240', '04:00'], ['-120', '02:00'], ['0', '00:00'], ['120', '22:00'], ['240', '20:00'], ['360', '18:00'], ['480', '16:00'], ['600', '14:00'], ['720', '12:00']],
+					pad: 0,
+					padMin: 0,
+					padMax: 0,
+					rendererOptions: { forceTickAt0: true },
+					//tickInterval:'1 hour',
+					//autoscale: false
+				},
 
-  var dimInputs = $('.calc-dim-table-wrap input');
+			},
+
+/*			canvasOverlay: {
+				show: true,
+				objects: [
+					{horizontalLine: {
+						name: 'zero',
+						y: 0,
+						lineWidth: 1,
+						color: 'rgb(0, 0, 0)',
+						shadow: false,
+						lineCap: 'butt',
+						xOffset: 0
+					}},
+				]
+			},*/
+
+//series:[{lineWidth:0.5}]
+		});
+
+//console.log(chart_data);
+		//plot1.drawSeries();
+		//plot1.replot();
+	});
+}
+
+drawChartSun();
+
+var chartDimm;
+
+var dimm_data = [
+  ['12', 100], 
+  ['14', 100], 
+  ['16', 100], 
+  ['18', 90], 
+  ['20', 80], 
+  ['22', 80], 
+  ['00', 60], 
+  ['02', 50], 
+  ['04', 50], 
+  ['06', 90], 
+  ['08', 90]
+];
+
+var ticks2 = [
+  ["0", 0], 
+  ["20", 20], 
+  ["40", 40],
+  ["60", 60], 
+  ["80", 80], 
+  ["100", 100]];
+
+  const dimInpFor = document.querySelectorAll('.dimming');
+
+  dimInpFor.forEach((elem, i) => {
+    dimm_data[i][1] = elem.value;
+  })
+
+var dimInputs = $('.calc-dim-table-wrap input');
 
 
   $(dimInputs).on('change', function() {
@@ -163,208 +238,62 @@ jQuery(document).ready(function ($) {
 
     var val = $(this).val();
 
-    if (val == 0) {
-      blocks[$(dimInputs).index(this)][1] = 0;
-    } else if (val != 0 && val <= 10) {
-      $(this).val('10');
-      blocks[$(dimInputs).index(this)][1] = 1;
-    } else if (val >= 11 && val <= 20) {
-      $(this).val('20');
-      blocks[$(dimInputs).index(this)][1] = 1.5;
-    } else if (val >= 21 && val <= 30) {
-      $(this).val('30');
-      blocks[$(dimInputs).index(this)][1] = 2;
-    } else if (val >= 31 && val <= 40) {
-      $(this).val('40');
-      blocks[$(dimInputs).index(this)][1] = 2.5;
-    } else if (val >= 41 && val <= 50) {
-      $(this).val('50');
-      blocks[$(dimInputs).index(this)][1] = 3;
-    } else if (val >= 51 && val <= 60) {
-      $(this).val('60');
-      blocks[$(dimInputs).index(this)][1] = 3.5;
-    } else if (val >= 61 && val <= 70) {
-      $(this).val('70');
-      blocks[$(dimInputs).index(this)][1] = 4;
-    } else if (val >= 71 && val <= 80) {
-      $(this).val('80');
-      blocks[$(dimInputs).index(this)][1] = 4.5;
-    } else if (val >= 81 && val <= 90) {
-      $(this).val('90');
-      blocks[$(dimInputs).index(this)][1] = 5;
-    } else if (val >= 91 && val <= 100) {
-      $(this).val('100');
-      blocks[$(dimInputs).index(this)][1] = 5.5;
-    } 
+    dimm_data[$(dimInputs).index(this)][1] = $(this).val();
 
-
-
-    $('#chart2 canvas').remove();
-      $('#chart2 .jqplot-axis').remove();
-      var blockFunc = $('#chart2').jqplot([blocks], {
-        animate: true,
-        // Will animate plot on calls to plot1.replot({resetAxes:true})
-        animateReplot: true,
-        title:'Димирование',
-        seriesDefaults:{
-            renderer:$.jqplot.BarRenderer,
-            rendererOptions: {
-              smooth: true
-          }
-        },
-        legend: {show: false},
-        seriesColors:['#74CADB'],
-        axes:{
-          xaxis:{
-            renderer: $.jqplot.CategoryAxisRenderer,
-            ticks: botTicks2,
-            pad: 1,
-            maxPad: 0
-          },
-          yaxis:{
-            renderer: $.jqplot.CategoryAxisRenderer,
-            ticks: ticks2,
-            tickOptions: {
-              suffix: '%'
-            },
-            pad: 0,
-            maxPad: 0
-          }
-        },
-        highlighter: { show: false }
-    });
+    drawDimmChart();
+    
   });
 
-  var ticks2 = [
-    ["20%"], 
-    ["40%"],
-    ["60%"], 
-    ["80%"], 
-    ["100%"],];
-    var botTicks2 = [
-    ["Закат"], 
-    ["17"], 
-    ["18"], 
-    ["19"], 
-    ["20"],
-    ["21"], 
-    ["22"], 
-    ["23"], 
-    ["00"], 
-    [ "01"],
-    [ "02"], 
-    [ "03"], 
-    [ "04"], 
-    [ "05"], 
-    [ "06"], 
-    [ "07"], 
-    [ "08"]
-  ];
+function drawDimmChart()
+{
+	jQuery(document).ready(function($)
+	{
+		//empty results
+		$.each($('.saving-result'), function(){
+			$(this).html('0');
+		})
 
-  var blockNone = [0, 0];
+		//console.log(dimm_data);
+		
+		if (chartDimm)
+			chartDimm.destroy();
 
-  
- 
-  var blockFunc = $('#chart2').jqplot([blockNone], {
-        animate: true,
-        // Will animate plot on calls to plot1.replot({resetAxes:true})
-        animateReplot: true,
-        title:'Димирование',
-        seriesDefaults:{
-            renderer:$.jqplot.BarRenderer,
-            rendererOptions: {
-              smooth: true
-          }
-        },
-        legend: {show: false},
-        seriesColors:['#74CADB'],
-        axes:{
-          xaxis:{
-            renderer: $.jqplot.CategoryAxisRenderer,
-            ticks: botTicks2,
-            pad: 1,
-            maxPad: 0
-          },
-          yaxis:{
-            renderer: $.jqplot.CategoryAxisRenderer,
-            min: 0,
-            max: 100,
-            ticks: ticks2,
-            tickOptions: {
-              showGridline: false,
-              suffix: '%'
-            },
-            pad: 0,
-            maxPad: 0
-          }
-        },
-        highlighter: { show: false }
-    });
+		chartDimm = $.jqplot('chart2', [dimm_data], {
+			title:'Расчет диммирования',
+			/* animate : true, */
+			seriesDefaults: {
+				rendererOptions: {
+					smooth: true,
+					barPadding: 0,
+					barMargin: 0,
 
-    const blockSelect = document.querySelector('.calc-dim-profile select');
+				},
+				renderer:$.jqplot.BarRenderer,
+			},
+      seriesColors:['#74CADB'],
+			axes:{
+				xaxis:{
+					renderer:$.jqplot.CategoryAxisRenderer,
+				},
 
-    blockSelect.addEventListener('change', () => {
+				yaxis:{
+          ticks: ticks2,
+					max: 100,
+					tickOptions:{
+						suffix: '%',
+					},
+				}
+			},
 
-      blocks2 = [
-        ['01', 5.5],
-        ['02', 5.5],
-        ['03', 5.5],
-        ['04', 5],
-        ['05', 4.5],
-        ['06', 4.5],
-        ['07', 4.5],
-        ['08', 4],
-        ['09', 1],
-        ['10', 1],
-        ['11', 1],
-        ['12', 1],
-        ['13', 2],
-        ['14', 4.5],
-        ['15', 4.5],
-        ['16', 4.5],
-        ['17', 4.5]
-      ];
+		});
+	});
+}
+
+drawDimmChart();
 
 
-      $('#chart2 canvas').remove();
-      $('#chart2 .jqplot-axis').remove();
-      var blockFunc2 = $('#chart2').jqplot([blocks2], {
-        animate: true,
-        // Will animate plot on calls to plot1.replot({resetAxes:true})
-        animateReplot: true,
-        title:'Димирование',
-        seriesDefaults:{
-            renderer:$.jqplot.BarRenderer,
-            rendererOptions: {
-              smooth: true
-          }
-        },
-        legend: {show: false},
-        seriesColors:['#74CADB'],
-        axes:{
-          xaxis:{
-            renderer: $.jqplot.CategoryAxisRenderer,
-            ticks: botTicks2,
-            pad: 1,
-            maxPad: 0
-          },
-          yaxis:{
-            renderer: $.jqplot.CategoryAxisRenderer,
-            min: 0,
-            max: 100,
-            ticks: ticks2,
-            tickOptions: {
-              showGridline: false,
-              suffix: '%'
-            },
-            pad: 0,
-            maxPad: 0
-          }
-        },
-        highlighter: { show: false }
-      });
-    
-    });
+
+
 
 
 
