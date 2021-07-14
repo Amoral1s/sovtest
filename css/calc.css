@@ -431,6 +431,39 @@
   border: 1px solid #C4C4C4;
 }
 
+.calc-dim-table-wrap {
+  max-width: 1100px;
+  margin: auto;
+  padding-left: 40px;
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.calc-dim-table-wrap-item input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 40px;
+  width: 58px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: rgba(4, 4, 4, 0.6);
+  margin-right: 4px;
+}
+
+.calc-dim-table-wrap-item input::-webkit-outer-spin-button,
+.calc-dim-table-wrap-item input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media (max-width: 1200px) {
   .jqplot-table-legend {
     top: 50px !important;
@@ -600,7 +633,37 @@
 }
 
 @media (max-width: 578px) {
-  .jqplot-xaxis-tick {
+  .calc-dim-table-wrap {
+    max-width: 800px;
+    margin: auto;
+    padding-left: 35px;
+    margin-top: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .calc-dim-table-wrap-item input {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    height: 30px;
+    width: 37px;
+    padding-left: 10px;
+    font-size: 12px;
+    color: rgba(4, 4, 4, 0.6);
+    margin-right: 8px;
+  }
+  .calc-dim-table-wrap-item input::-webkit-outer-spin-button,
+  .calc-dim-table-wrap-item input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  #chart2 .jqplot-xaxis-tick {
     font-size: 8px;
   }
   .calc-city-wrap-input {

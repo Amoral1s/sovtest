@@ -262,8 +262,26 @@
         border-radius: 0px  
         border: 1px solid #C4C4C4
 
-
-
+.calc-dim-table-wrap
+  max-width: 1100px
+  margin: auto
+  padding-left: 40px
+  margin-top: 15px
+  display: flex
+  justify-content: flex-start
+  &-item
+    input
+      appearance: none
+      height: 40px
+      width: 58px
+      padding-left: 10px
+      font-size: 14px
+      color: rgba($dark, .6)
+      margin-right: 4px
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
 
 
 
@@ -350,7 +368,7 @@
 
 
 @media (max-width: 768px)
- 
+  
   .calc-city-wrap-input-map
     display: flex
     flex-wrap: wrap
@@ -384,9 +402,29 @@
             height: 40px
 
 @media (max-width: 578px)
+  .calc-dim-table-wrap
+    max-width: 800px
+    margin: auto
+    padding-left: 35px
+    margin-top: 15px
+    display: flex
+    justify-content: flex-start
+    &-item
+      input
+        appearance: none
+        height: 30px
+        width: 37px
+        padding-left: 10px
+        font-size: 12px
+        color: rgba($dark, .6)
+        margin-right: 8px
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button
+        -webkit-appearance: none
+        margin: 0
   #chart2
-  .jqplot-xaxis-tick
-    font-size: 8px
+    .jqplot-xaxis-tick
+      font-size: 8px
   .calc-city-wrap-input
     margin-bottom: 0
   #chart1, #chart2

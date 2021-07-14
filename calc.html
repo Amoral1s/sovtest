@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="css/animate.css">
   <!-- <link rel="stylesheet" href="css/fullpage.css"> -->
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="js/dist/css/select2.min.css">
   <link rel="stylesheet" href="css/calc.css">
 
 
@@ -149,9 +150,8 @@
           <div class="calc-city-wrap-input-select">
             <label for="">Укажите свой город:</label>
             <div>
-              <select name="" id="">
-                <option value="">Москва</option>
-                <option value="">Москва</option>
+              <select class="js-select2" name="city" placeholder="Выберите город">
+                
               </select>
             </div>
           </div>
@@ -215,7 +215,79 @@
         </div>
       </div>
       <div class="calc-dim-table">
-        <div id="chart2" style="height: 500px;"></div> 
+        <div id="chart2" style="height: 500px;">
+          
+        </div> 
+        <div class="calc-dim-table-wrap">
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+          <div class="calc-dim-table-wrap-item">
+            <input type="number" value="0" min="1" max="100">
+          </div>
+          <!-- /.calc-dim-table-wrap-item -->
+        </div>
       </div>
     </div>
   </div>
@@ -264,6 +336,8 @@
     </div>
   </div>
 </section>
+
+
 
 <footer class="container footer">
   <div class="footer-brands">
@@ -392,7 +466,8 @@
   
 
   <script src="js/jq-3-4-1.js"></script>
-  <!-- <script src="js/common.js"></script> -->
+  <script src="js/libs.min.js"></script>
+  <script src="js/common.js"></script>
 
   <script type="text/javascript" src="jquery.jqplot.js"></script>
   <script type="text/javascript" src="plugins/jqplot.BezierCurveRenderer.js"></script>
@@ -406,7 +481,12 @@
 
 
   <script src="js/calc.js"></script>
-
+  <script src="js/jquery.csv.min.js"></script>
+  <script src="js/dist/js/select2.min.js"></script>
+  <script src="js/dist/js/i18n/ru.js"></script>
+  <script src="js/suncalc.js"></script>
+  <script src="js/json.js"></script>
+  
 
   
 </body>

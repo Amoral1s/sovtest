@@ -1,5 +1,11 @@
 jQuery(document).ready(function ($) {
 
+  $('.tech img').on('click', function() {
+    $('.overlay').fadeIn(200);
+    $('.popup-img').fadeIn(200);
+    $('.popup-img img').attr('src', $(this).attr('src'));
+  });
+
   $('.hars-left-wrap-item').on('click', function(e, index) {
 
     $('.hars-left-wrap-item').removeClass('hars-left-wrap-item-active');
@@ -278,7 +284,6 @@ jQuery(document).ready(function ($) {
       $(this).removeClass('menu-active');
     });
 
-    new WOW().init();
 
       
     }

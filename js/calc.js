@@ -86,7 +86,7 @@ jQuery(document).ready(function ($) {
 
   const chart1Select = document.querySelector('.calc-city-wrap-input-select select');
 
-  chart1Select.addEventListener('change', () => {
+  $('.js-select2').on('select2:select', () => {
     $('#chart1 table.jqplot-table-legend').remove();
     $('#chart1 canvas').remove();
     $('#chart1 .jqplot-axis').remove();
@@ -134,28 +134,108 @@ jQuery(document).ready(function ($) {
   });
 
   var blocks = [
-    ['01', 6.5],
-    ['02', 6.5],
-    ['03', 6.5],
-    ['04', 6],
-    ['05', 5.5],
-    ['06', 5.5],
-    ['07', 5.5],
-    ['08', 5],
-    ['09', 2],
-    ['10', 2],
-    ['11', 2],
-    ['12', 2],
-    ['13', 3],
-    ['14', 5.5],
-    ['15', 5.5],
-    ['16', 5.5],
-    ['17', 5.5]
-   
+    ['01', 5.5],
+    ['02', 5.5],
+    ['03', 5.5],
+    ['04', 5],
+    ['05', 4.5],
+    ['06', 4.5],
+    ['07', 4.5],
+    ['08', 4],
+    ['09', 1],
+    ['10', 1],
+    ['11', 1],
+    ['12', 1],
+    ['13', 2],
+    ['14', 4.5],
+    ['15', 4.5],
+    ['16', 4.5],
+    ['17', 4.5]
   ];
 
+
+
+  var dimInputs = $('.calc-dim-table-wrap input');
+
+
+  $(dimInputs).on('change', function() {
+    
+
+    var val = $(this).val();
+
+    if (val == 0) {
+      blocks[$(dimInputs).index(this)][1] = 0;
+    } else if (val != 0 && val <= 10) {
+      $(this).val('10');
+      blocks[$(dimInputs).index(this)][1] = 1;
+    } else if (val >= 11 && val <= 20) {
+      $(this).val('20');
+      blocks[$(dimInputs).index(this)][1] = 1.5;
+    } else if (val >= 21 && val <= 30) {
+      $(this).val('30');
+      blocks[$(dimInputs).index(this)][1] = 2;
+    } else if (val >= 31 && val <= 40) {
+      $(this).val('40');
+      blocks[$(dimInputs).index(this)][1] = 2.5;
+    } else if (val >= 41 && val <= 50) {
+      $(this).val('50');
+      blocks[$(dimInputs).index(this)][1] = 3;
+    } else if (val >= 51 && val <= 60) {
+      $(this).val('60');
+      blocks[$(dimInputs).index(this)][1] = 3.5;
+    } else if (val >= 61 && val <= 70) {
+      $(this).val('70');
+      blocks[$(dimInputs).index(this)][1] = 4;
+    } else if (val >= 71 && val <= 80) {
+      $(this).val('80');
+      blocks[$(dimInputs).index(this)][1] = 4.5;
+    } else if (val >= 81 && val <= 90) {
+      $(this).val('90');
+      blocks[$(dimInputs).index(this)][1] = 5;
+    } else if (val >= 91 && val <= 100) {
+      $(this).val('100');
+      blocks[$(dimInputs).index(this)][1] = 5.5;
+    } 
+
+
+
+    $('#chart2 canvas').remove();
+      $('#chart2 .jqplot-axis').remove();
+      var blockFunc = $('#chart2').jqplot([blocks], {
+        animate: true,
+        // Will animate plot on calls to plot1.replot({resetAxes:true})
+        animateReplot: true,
+        title:'Димирование',
+        seriesDefaults:{
+            renderer:$.jqplot.BarRenderer,
+            rendererOptions: {
+              smooth: true
+          }
+        },
+        legend: {show: false},
+        seriesColors:['#74CADB'],
+        axes:{
+          xaxis:{
+            renderer: $.jqplot.CategoryAxisRenderer,
+            ticks: botTicks2,
+            pad: 1,
+            maxPad: 0
+          },
+          yaxis:{
+            renderer: $.jqplot.CategoryAxisRenderer,
+            ticks: ticks2,
+            tickOptions: {
+              suffix: '%'
+            },
+            pad: 0,
+            maxPad: 0
+          }
+        },
+        highlighter: { show: false }
+    });
+  });
+
   var ticks2 = [
-    ["0%"], 
     ["20%"], 
     ["40%"],
     ["60%"], 
@@ -185,7 +265,7 @@ jQuery(document).ready(function ($) {
 
   
  
-    $('#chart2').jqplot([blockNone], {
+  var blockFunc = $('#chart2').jqplot([blockNone], {
         animate: true,
         // Will animate plot on calls to plot1.replot({resetAxes:true})
         animateReplot: true,
@@ -207,8 +287,11 @@ jQuery(document).ready(function ($) {
           },
           yaxis:{
             renderer: $.jqplot.CategoryAxisRenderer,
+            min: 0,
+            max: 100,
             ticks: ticks2,
             tickOptions: {
+              showGridline: false,
               suffix: '%'
             },
             pad: 0,
@@ -221,8 +304,31 @@ jQuery(document).ready(function ($) {
     const blockSelect = document.querySelector('.calc-dim-profile select');
 
     blockSelect.addEventListener('change', () => {
+
+      blocks2 = [
+        ['01', 5.5],
+        ['02', 5.5],
+        ['03', 5.5],
+        ['04', 5],
+        ['05', 4.5],
+        ['06', 4.5],
+        ['07', 4.5],
+        ['08', 4],
+        ['09', 1],
+        ['10', 1],
+        ['11', 1],
+        ['12', 1],
+        ['13', 2],
+        ['14', 4.5],
+        ['15', 4.5],
+        ['16', 4.5],
+        ['17', 4.5]
+      ];
+
+
       $('#chart2 canvas').remove();
-      $('#chart2').jqplot([blocks], {
+      $('#chart2 .jqplot-axis').remove();
+      var blockFunc2 = $('#chart2').jqplot([blocks2], {
         animate: true,
         // Will animate plot on calls to plot1.replot({resetAxes:true})
         animateReplot: true,
@@ -244,8 +350,11 @@ jQuery(document).ready(function ($) {
           },
           yaxis:{
             renderer: $.jqplot.CategoryAxisRenderer,
+            min: 0,
+            max: 100,
             ticks: ticks2,
             tickOptions: {
+              showGridline: false,
               suffix: '%'
             },
             pad: 0,
@@ -253,7 +362,8 @@ jQuery(document).ready(function ($) {
           }
         },
         highlighter: { show: false }
-    });
+      });
+    
     });
 
 
@@ -306,6 +416,9 @@ jQuery(document).ready(function ($) {
     })
 
   });
+
+
+  
 
 
 

@@ -300,7 +300,6 @@
 .lot.lazyloaded
   background-image: url(../img/lot/lot-bg.jpg)
 
-
 .features
   padding-top: 50px
   padding-bottom: 100px
@@ -561,7 +560,6 @@
     
 .func.lazyloaded
   background-image: url(../img/func/bg.jpg)
-
 
 .call
   display: flex
@@ -832,8 +830,49 @@
         &::-webkit-resizer
           background-color: #1E1F27
 
+.tech
+  background-color: #F9F9F9
+  padding-top: 70px
+  color: $dark
+  img
+    object-fit: contain
+    cursor: pointer
+    transition: .2s
+    &:hover
+      transition: .2s
+      opacity: .8
+  .pad
+    padding-top: 70px
+    padding-bottom: 70px
+  h2
+    font-size: 40px
+    margin-bottom: 35px
+    span
+      color: $main
+  p
+    font-size: 18px
+    margin-bottom: 20px
+  &-white
+    background-color: #fff
+  &-right
+    .container
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: center
+    h2
+      width: 100%
+    &-left
+      width: 60%
+    &-right
+      width: 40%
+      display: flex
+      justify-content: center
+      align-items: center
 
-
+.reverse
+  .container
+    flex-direction: row-reverse
     
 
 .footer
@@ -950,6 +989,32 @@
           background-color: $main
           height: 60px
           margin-top: 30px
+
+.popup-img
+  .popup-wrap
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    width: 100%
+    max-width: 1600px
+    max-height: 99vh
+    padding: 15px
+    background-color: $light
+    padding: 30px
+    .close
+      color: $dark
+      top: -18px
+      right: 4px
+      &:hover
+        color: $main
+    img
+      object-fit: contain
+      object-position: center
+      margin: auto
+      display: block
+      width: 100%
+      max-width: 100%
 
 #thx
   position: fixed
@@ -1105,7 +1170,19 @@
   .title
     color: $dark
 
-
+.calc-city-wrap-input-select
+  .select2-selection__arrow
+    display: none
+  .select2-container--default .select2-selection--single
+    height: 50px
+  .select2-container--default .select2-selection--single .select2-selection__rendered
+    height: 50px
+    display: flex
+    align-items: center
+    padding-left: 10px
+    font-size: 16px
+.select2-results__option--selectable
+  color: $dark
 
 
 
