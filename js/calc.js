@@ -46,18 +46,115 @@ jQuery(document).ready(function ($) {
     "sunset": [[currentdate.getFullYear()+"-01-01", 500], [currentdate.getFullYear()+"-6-31", 200], [currentdate.getFullYear()+"-12-31", 500]], 
     "sunrise": [[currentdate.getFullYear()+"-01-01", -500], [currentdate.getFullYear()+"-6-31", -200], [currentdate.getFullYear()+"-12-31", -500]]
   };
-  //ticks: [['-1200', '12:00'], ['-1100', '11:00'], ['-1000', '10:00'], ['-900', '09:00'], ['-800', '08:00'], ['-700', '07:00'], ['-600', '06:00'], ['-500', '05:00'], ['-400', '04:00'], ['-300', '03:00'], ['-200', '02:00'], ['-100', '01:00'], ['0', '00:00'], ['100', '23:00'], ['200', '22:00'], ['300', '21:00'], ['400', '20:00'], ['500', '19:00'], ['600', '18:00'], ['700', '17:00'], ['800', '16:00'], ['900', '15:00'], ['1000', '14:00'], ['1100', '13:00'], ['1200', '12:00']],
-  	//var ticks_data = ['12', '14', '16', '18', '20', '22', '24', '2', '4', '6', '8', '10', 'sunset'];
+  /*ticks: [
+    ['-1200', '12:00'], 
+    ['-1100', '11:00'], 
+    ['-1000', '10:00'], 
+    ['-900', '09:00'], 
+    ['-800', '08:00'], 
+    ['-700', '07:00'], 
+    ['-600', '06:00'], 
+    ['-500', '05:00'], 
+    ['-400', '04:00'], 
+    ['-300', '03:00'], 
+    ['-200', '02:00'], 
+    ['-100', '01:00'], 
+    ['0', '00:00'], 
+    ['100', '23:00'], 
+    ['200', '22:00'], 
+    ['300', '21:00'], 
+    ['400', '20:00'], 
+    ['500', '19:00'], 
+    ['600', '18:00'], 
+    ['700', '17:00'], 
+    ['800', '16:00'], 
+    ['900', '15:00'], 
+    ['1000', '14:00'], 
+    ['1100', '13:00'], 
+    ['1200', '12:00']],*/
   var timesSunrise;
   var timesSunset;
-  console.log(chart_data)
 
   $('.js-select2').on('select2:select', () => {
-    
 
     var times = SunCalc.getTimes(new Date(), 
     select.options[select.selectedIndex].dataset.latitude, 
     select.options[select.selectedIndex].dataset.longitude);
+
+    var sunriseTable = -120;
+
+    if (times.sunrise.getHours() == 0) {
+      sunriseTable = 0;
+    } else if (times.sunrise.getHours() == 1) {
+      sunriseTable = -60;
+    } else if (times.sunrise.getHours() == 2) {
+      sunriseTable = -120;
+    } else if (times.sunrise.getHours() == 3) {
+      sunriseTable = -180;
+    } else if (times.sunrise.getHours() == 4) {
+      sunriseTable = -240;
+    } else if (times.sunrise.getHours() == 5) {
+      sunriseTable = -300;
+    } else if (times.sunrise.getHours() == 6) {
+      sunriseTable = -360;
+    } else if (times.sunrise.getHours() == 7) {
+      sunriseTable = -420;
+    } else if (times.sunrise.getHours() == 8) {
+      sunriseTable = -480;
+    } else if (times.sunrise.getHours() == 9) {
+      sunriseTable = -540;
+    } else if (times.sunrise.getHours() == 10) {
+      sunriseTable = -600;
+    }
+    
+    var sunsetTable = 120;
+
+    if (times.sunset.getHours() == 0) {
+      sunsetTable = 0;
+    } else if (times.sunset.getHours() == 23) {
+      sunsetTable = 60;
+    } else if (times.sunset.getHours() == 22) {
+      sunsetTable = 120;
+    } else if (times.sunset.getHours() == 21) {
+      sunsetTable = 180;
+    } else if (times.sunset.getHours() == 20) {
+      sunsetTable = 240;
+    } else if (times.sunset.getHours() == 19) {
+      sunsetTable = 300;
+    } else if (times.sunset.getHours() == 18) {
+      sunsetTable = 360;
+    } else if (times.sunset.getHours() == 17) {
+      sunsetTable = 420;
+    } else if (times.sunset.getHours() == 16) {
+      sunsetTable = 480;
+    } else if (times.sunset.getHours() == 15) {
+      sunsetTable = 540;
+    } else if (times.sunset.getHours() == 14) {
+      sunsetTable = 600;
+    } else if (times.sunset.getHours() == 13) {
+      sunsetTable = 660;
+    } else if (times.sunset.getHours() == 12) {
+      sunsetTable = 720;
+    }
+
+    /* ['-720', '12:00'], ['-600', '10:00'], ['-480', '08:00'], ['-360', '06:00'], ['-240', '04:00'], ['-120', '02:00'], ['0', '00:00'], ['120', '22:00'], ['240', '20:00'], ['360', '18:00'], ['480', '16:00'], ['600', '14:00'], ['720', '12:00'] */
+
+    
+
+
+    
+    chart_data["sunset"] = [
+      [currentdate.getFullYear()+"-01-01", +sunsetTable], 
+      [currentdate.getFullYear()+"-6-31", +(+sunsetTable / 2)], 
+      [currentdate.getFullYear()+"-12-31", +sunsetTable]];
+
+    chart_data["sunrise"] = [
+      [currentdate.getFullYear()+"-01-01", +sunriseTable], 
+      [currentdate.getFullYear()+"-6-31", +sunriseTable / 2], 
+      [currentdate.getFullYear()+"-12-31", +sunriseTable]];
+
+      
+   
 
     var timesSunrise = (times.sunrise.getHours()<10?'0':'') 
     + times.sunrise.getHours() 
@@ -68,7 +165,6 @@ jQuery(document).ready(function ($) {
     + (times.sunset.getHours()<10?'0':'') 
     + ':' + (times.sunset.getMinutes()<10?'0':'') 
     +  times.sunset.getMinutes();
-
     latitude.textContent = select.options[select.selectedIndex].dataset.latitude;
     longitude.textContent = select.options[select.selectedIndex].dataset.longitude;
     textsunset.textContent = timesSunset;
@@ -76,11 +172,11 @@ jQuery(document).ready(function ($) {
 
     /* chart_data["sunset"] = +timesSunset;
     chart_data["sunrise"] = +timesSunrise; */
-    chart_data["sunset"] = [[currentdate.getFullYear()+"-01-01", 500], [currentdate.getFullYear()+"-6-31", 200], [currentdate.getFullYear()+"-12-31", 500]];
-    chart_data["sunrise"] = [[currentdate.getFullYear()+"-01-01", -500], [currentdate.getFullYear()+"-6-31", -200], [currentdate.getFullYear()+"-12-31", -500]];
-
     console.log(timesSunset)
+    console.log(sunsetTable)
     console.log(timesSunrise)
+    console.log(sunriseTable)
+    console.log(times.sunrise.getHours())
       
     drawChartSun();
 
