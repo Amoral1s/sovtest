@@ -7,7 +7,8 @@ jQuery(document).ready(function ($) {
         sunrise = document.querySelector('.sunrise');
   
   $.ajax({
-    url: "../city/city.csv",
+    /* url: "../city/city.csv", */
+    url: "https://amoral1s.github.io/sovtest/city/city.csv",
     async: false,
     success: function (csv) {
         data = $.csv.toObjects(csv);
