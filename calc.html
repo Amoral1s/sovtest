@@ -97,8 +97,8 @@
             <label for="">Тип лампы:</label>
             <div>
               <select name="" id="">
-                <option value="1" selected>Светодиодная</option>
-                <option value="2">Светодиодная 0-10V</option>
+                <option value="2" selected>Светодиодная 1-10 V</option>
+                <option value="1" >Светодиодная UART</option>
                 <option value="3">Светодиодная DALI</option>
               </select>
             </div>
@@ -107,14 +107,14 @@
           <div class="calc-form-row-item">
             <label for="">Кол-во:</label>
             <div>
-              <input type="text" value="1">
+              <input type="text" class="lamp-count" value="1">
             </div>
           </div>
           <!-- /.calc-form-row-item -->
           <div class="calc-form-row-item">
             <label for="">Мощность W:</label>
             <div>
-              <input type="text" value="100">
+              <input type="text" class="lamp-wt" value="100">
             </div>
           </div>
           <!-- /.calc-form-row-item -->
@@ -181,9 +181,11 @@
         <div class="calc-on-wrap-item">
           <label for="">Укажите время включения после заката:</label>
           <div>
-            <select name="" id="">
-              <option value="">+30 минут</option>
-              <option value="">+20 минут</option>
+            <select class="zad-plus" name="" id="">
+              <option value="0">0 минут</option>
+              <option value="1">+60 минут</option>
+              <!-- <option value="2">+120 минут</option>
+              <option value="3">+180 минут</option> -->
             </select>
           </div>
         </div>
@@ -191,9 +193,11 @@
         <div class="calc-on-wrap-item">
           <label for="">Укажите время выключения после восхода:</label>
           <div>
-            <select name="" id="">
-              <option value="">-30 минут</option>
-              <option value="">-20 минут</option>
+            <select class="zad-minus" name="" id="">
+              <option value="0">0 минут</option>
+              <option value="1">60 минут</option>
+              <!-- <option value="2">120 минут</option>
+              <option value="3">180 минут</option> -->
             </select>
           </div>
         </div>
@@ -208,9 +212,10 @@
       <div class="calc-dim-profile">
         <label for="">Выберите профиль:</label>
         <div>
-          <select name="" id="">
-            <option value="">Экономический</option>
-            <option value="">Экономический</option>
+          <select class="dim-profile" name="" id="">
+            <option value="1">Интенсивный</option>
+            <option value="2" selected>Сбалансированный</option>
+            <option value="3">Экономичный</option>
           </select>
         </div>
       </div>
@@ -333,35 +338,35 @@
           <div class="calc-eco-wrap-item">
             <img src="img/calc/12.svg" alt="">
             <div>Экономия энергии</div>
-            <b>10</b>
+            <b class="res-persent">10</b>
             <span>%</span>
           </div>
           <!-- /.calc-echo-wrap-item -->
           <div class="calc-eco-wrap-item">
             <img src="img/calc/12.svg" alt="">
             <div>Экономия энергии</div>
-            <b>2690</b>
+            <b class="res-kw">2690</b>
             <span>Квт</span>
           </div>
           <!-- /.calc-echo-wrap-item -->
           <div class="calc-eco-wrap-item">
             <img src="img/calc/3.svg" alt="">
             <div>В денежном эквиваленте</div>
-            <b>10.970</b>
+            <b class="res-money">10.970</b>
             <span>рублей</span>
           </div>
           <!-- /.calc-echo-wrap-item -->
           <div class="calc-eco-wrap-item">
             <img src="img/calc/4.svg" alt="">
             <div>CO2</div>
-            <b>2</b>
+            <b class="res-co">2</b>
             <span>тонны</span>
           </div>
           <!-- /.calc-echo-wrap-item -->
           <div class="calc-eco-wrap-item">
             <img src="img/calc/5.svg" alt="">
             <div>Сохраненно деревьеев</div>
-            <b>10</b>
+            <b class="res-three">10</b>
             <span>деревьев</span>
           </div>
           <!-- /.calc-echo-wrap-item -->

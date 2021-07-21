@@ -104,12 +104,17 @@ jQuery(document).ready(function ($) {
   var sunriseTable;
   var sunsetTable;
   var times;
+  let sunrise;
+  let sunset;
 
   $('.js-select2').on('select2:select', () => {
 
     times = SunCalc.getTimes(new Date(), 
     select.options[select.selectedIndex].dataset.latitude, 
     select.options[select.selectedIndex].dataset.longitude);
+
+    sunrise = times.sunrise.getHours();
+    sunset = times.sunset.getHours();
 
     sunriseTable = -120;
 
@@ -214,6 +219,8 @@ jQuery(document).ready(function ($) {
     drawChartSun();
     dimmging();
   });
+
+
 
 
 
@@ -328,6 +335,11 @@ function drawChartSun()
 }
 drawChartSun();
 
+
+const dimSelect = document.querySelector('select.dim-profile');
+
+
+
 var dimm_data = [
   ['00', 100], 
   ['01', 100], 
@@ -355,6 +367,10 @@ var dimm_data = [
   ['23', 90]
 ];
 
+dimSelect.addEventListener('change', () => {
+  dimmging();
+});
+
 const dimInpFor = document.querySelectorAll('.dimming');
 
   dimInpFor.forEach((elem, i) => {
@@ -362,9 +378,10 @@ const dimInpFor = document.querySelectorAll('.dimming');
   });
 
 function dimmging() {
-  let sunrise = times.sunrise.getHours(), 
-      sunset = times.sunset.getHours(),
-      count = 80;
+  
+
+  dimm_data[sunrise][0] = 'Рассвет';
+  dimm_data[sunset][0] = 'Закат';
   
 
   for (let i = 0; i < dimm_data.length; i++) {
@@ -372,55 +389,134 @@ function dimmging() {
     
     if (i > sunrise && i < sunset) {
       if (i < (sunset - sunrise) / 2) {
-        dimm_data[i][1] = count;
-        count -= 10;
-      } else if (i < sunset - 4) {
-        dimm_data[i][1] = 30;
-      } else {
-        dimm_data[i][1] = count;
-        count += 10;
+        dimm_data[i][1] = 0;
+      } 
+      
+    } 
+
+    if (dimSelect.value == 1) { //Интенсивнй режим
+      if (i == sunset) {
+        dimm_data[i][1] = 100;
+      } 
+      if (i == sunset + 1) {
+        dimm_data[i][1] = 100;
       }
-    } else {
-      dimm_data[i][1] = 100;
+      if (i == sunset + 2) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunset + 3) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunset + 4) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunrise - 1) {
+        dimm_data[i][1] = 100;
+      } 
+      if (i == sunrise) {
+        dimm_data[i][1] = 100;
+      }
+      if (i == sunrise + 1) {
+        dimm_data[i][1] = 0;
+      }
+      if (i == sunrise - 1) {
+        dimm_data[i][1] = 100;
+      }
+      if (i == sunrise - 2) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunrise - 3) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunrise - 4) {
+        dimm_data[i][1] = 80;
+      }
+    } 
+    else if (dimSelect.value == 2) { //Сбалансированый режим
+      if (i == sunset) {
+        dimm_data[i][1] = 70;
+      } 
+      if (i == sunset + 1) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunset + 2) {
+        dimm_data[i][1] = 100;
+      }
+      if (i == sunset + 3) {
+        dimm_data[i][1] = 100;
+      }
+      if (i == sunset + 4) {
+        dimm_data[i][1] = 100;
+      }
+      if (i == sunrise - 1) {
+        dimm_data[i][1] = 100;
+      } 
+      if (i == sunrise) {
+        dimm_data[i][1] = 100;
+      }
+      if (i == sunrise + 1) {
+        dimm_data[i][1] = 0;
+      }
+      if (i == sunrise - 1) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunrise - 2) {
+        dimm_data[i][1] = 50;
+      }
+      if (i == sunrise - 3) {
+        dimm_data[i][1] = 60;
+      }
+      if (i == sunrise - 4) {
+        dimm_data[i][1] = 80;
+      }
     }
+    else if (dimSelect.value == 3) { //Экономичный режим
+      if (i == sunset) {
+        dimm_data[i][1] = 50;
+      } 
+      if (i == sunset + 1) {
+        dimm_data[i][1] = 60;
+      }
+      if (i == sunset + 2) {
+        dimm_data[i][1] = 100;
+      }
+      if (i == sunset + 3) {
+        dimm_data[i][1] = 50;
+      }
+      if (i == sunset + 4) {
+        dimm_data[i][1] = 50;
+      }
+      if (i == sunrise - 1) {
+        dimm_data[i][1] = 70;
+      } 
+      if (i == sunrise) {
+        dimm_data[i][1] = 80;
+      }
+      if (i == sunrise + 1) {
+        dimm_data[i][1] = 0;
+      }
+      if (i == sunrise - 2) {
+        dimm_data[i][1] = 70;
+      }
+      if (i == sunrise - 3) {
+        dimm_data[i][1] = 50;
+      }
+      if (i == sunrise - 4) {
+        dimm_data[i][1] = 40;
+      }
+      if (i == sunrise - 5) {
+        dimm_data[i][1] = 40;
+      }
+    }
+
   }
 
   dimInpFor.forEach((elem, i) => {
     elem.value = dimm_data[i][1];
   });
 
-  /* dimm_data[sunrise][1] = 100;
-  dimm_data[sunset][1] = 100; */
-  
-  
-  /* dimm_data = [
-    ['00', 100], 
-    ['01', 100], 
-    ['02', 100], 
-    ['03', 90], 
-    ['04', 80], 
-    ['05', 80], 
-    ['06', 60], 
-    ['07', 50], 
-    ['08', 50], 
-    ['09', 90], 
-    ['10', 90],
-    ['11', 90],
-    ['12', 90],
-    ['13', 90],
-    ['14', 90],
-    ['15', 90],
-    ['16', 90],
-    ['17', 90],
-    ['18', 90],
-    ['19', 90],
-    ['20', 90],
-    ['21', 90],
-    ['22', 90],
-    ['23', 90]
-  ]; */
-
   drawDimmChart();
+  calculating();
 }
 
 
@@ -450,7 +546,8 @@ var dimInputs = $('.calc-dim-table-wrap input');
     dimm_data[$(dimInputs).index(this)][1] = $(this).val();
 
     drawDimmChart();
-    
+    calculating();
+
   });
 
 function drawDimmChart()
@@ -500,12 +597,6 @@ function drawDimmChart()
 
 drawDimmChart();
 
-
-
-
-
-
-
 $('.add').on('click', function() {
   let newRow = document.createElement('div');
   const rowWrap = document.querySelector('.section-one');
@@ -516,8 +607,8 @@ $('.add').on('click', function() {
       <label for="">Тип лампы:</label>
       <div>
         <select name="" id="">
-          <option value="1" selected>Светодиодная</option>
-          <option value="2">Светодиодная 0-10V</option>
+          <option value="2" selected>Светодиодная 1-10 V</option>
+          <option value="1" >Светодиодная UART</option>
           <option value="3">Светодиодная DALI</option>
         </select>
       </div>
@@ -525,13 +616,13 @@ $('.add').on('click', function() {
     <div class="calc-form-row-item">
       <label for="">Кол-во:</label>
       <div>
-        <input type="text" value="1">
+        <input type="text" class="lamp-count" value="1">
       </div>
     </div>
     <div class="calc-form-row-item">
       <label for="">Мощность W:</label>
       <div>
-        <input type="text" value="100">
+        <input type="text" class="lamp-wt" value="100">
       </div>
     </div>
     <div class="calc-form-row-item btn-item">
@@ -564,17 +655,87 @@ $('.calc-eco-btn .button').on('click', function () {
   $('.calc-eco-text').slideDown(200);
 });
 
+const zadMinus = document.querySelector('.zad-minus'),
+zadPlus = document.querySelector('.zad-plus');
+
+
+
+zadPlus.addEventListener('change', () => {
+if (zadPlus.value == 1) {
+sunset += 1;
+} else if (zadPlus.value == 2) {
+sunset += 2;
+} else if (zadPlus.value == 3) {
+sunset += 3;
+}
+dimmging();
+
+});
+zadMinus.addEventListener('change', () => {
+if (zadMinus.value == 1) {
+sunrise += 1;
+} else if (zadMinus.value == 2) {
+sunrise += 2;
+} else if (zadMinus.value == 3) {
+sunrise += 3;
+}
+dimmging();
+});
+
+
 
 function calculating() { 
-  const lampRow = document.querySelectorAll('.calc-form-row');
-  
+  let lampArr = [];
+  let lampCounts = 0;
+  const lampRow = document.querySelectorAll('.calc-form-row'); // Строка с лампами
+
+  //сбор данных с ламп
   lampRow.forEach((elem) => {
-    let lampType = elem.querySelector('.lamp-select'),
-        lampCount = elem.querySelector('.lamp-count'),
+    let lampCount = elem.querySelector('.lamp-count'),
         lampWT = elem.querySelector('.lamp-wt');
-
-
+    let elemArr = [lampCount.value, lampWT.value];
+    lampArr.push(elemArr);
   });
+
+  //ВТ в час ламп без экономии
+  let lampArrResult = 0; // все лампы в час ВТ
+  for (let i = 0; i < lampArr.length; i ++) {
+    lampArrResult += lampArr[i][0] * lampArr[i][1]; // 1 лампа в час ВТ
+  }
+  //расчет экономии ламп 
+  let resultECO24 = 0; // сколько ватт в 24 часа с экономией
+
+  for (let i = 0; i < dimm_data.length; i++) {
+
+    resultECO24 += Math.round(lampArrResult / 100 * dimm_data[i][1]); // 2400 = 100% загрузка одной лампы
+    
+  }
+
+  let resultLamp24 = Math.round(lampArrResult * 24);
+
+  let resultLamp365 = resultLamp24 * 365 / 1000;
+  let resultECO365 = resultECO24 * 365 / 1000;
+
+
+  //Вывод значений
+  const textWithOut = document.querySelector('.with-st'),
+        textWith = document.querySelector('.without-st'),
+        textPersent = document.querySelector('.res-persent'),
+        textKw = document.querySelector('.res-kw'),
+        textMoney = document.querySelector('.res-money'),
+        textCO2 = document.querySelector('.res-co'),
+        textThree = document.querySelector('.res-three');
+  
+  const calcKw = document.querySelector('.calc-kw input');
+
+  textWithOut.textContent = Math.round(resultLamp365);
+  textWith.textContent = Math.round(resultECO365);
+  textPersent.textContent = Math.round((resultLamp365 - resultECO365) / resultLamp365 * 100);
+  textKw.textContent =  Math.round(resultLamp365 - resultECO365);
+  textMoney.textContent = Math.round(resultECO365 * calcKw.value);
+  textCO2.textContent = Math.round(resultECO365 / 1177);
+  textThree.textContent = Math.round(resultECO365 / 87);
+
   
 
 }
