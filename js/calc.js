@@ -245,8 +245,7 @@ function drawChartSun()
 				lineWidth: 4
 			},
 
-			seriesColors:['#000000', '#6DA4EF', '#6DA4EF'],
-
+			seriesColors:['#000000', '#6DA4EF', '#FFCC33'],
 			series: [
 					{lineWidth: 1}
 			],
@@ -516,7 +515,7 @@ function dimmging() {
   });
 
   drawDimmChart();
-  calculating();
+  /* calculating(); */
 }
 
 
@@ -546,7 +545,7 @@ var dimInputs = $('.calc-dim-table-wrap input');
     dimm_data[$(dimInputs).index(this)][1] = $(this).val();
 
     drawDimmChart();
-    calculating();
+    /* calculating(); */
 
   });
 
@@ -649,10 +648,19 @@ $('.add').on('click', function() {
 
 $('.calc-eco-btn .button').on('click', function () { 
   calculating();
-
-  $(this).slideUp(200);
-  $('.calc-eco-slide').slideDown(200);
-  $('.calc-eco-text').slideDown(200);
+  if ($(this).text() == 'Рассчитать повторно') {
+    $('.calc-eco-slide').slideUp(200);
+    $('.calc-eco-text').slideUp(200);
+    setTimeout(() => {
+      $('.calc-eco-slide').slideDown(200);
+      $('.calc-eco-text').slideDown(200);
+    }, 500);
+  } else {
+    $(this).text('Рассчитать повторно');
+    $('.calc-eco-slide').slideDown(200);
+    $('.calc-eco-text').slideDown(200);
+  }
+  
 });
 
 const zadMinus = document.querySelector('.zad-minus'),
@@ -713,7 +721,7 @@ function calculating() {
 
   let resultLamp24 = Math.round(lampArrResult * 24);
 
-  let resultLamp365 = resultLamp24 * 365 / 1000;
+  let resultLamp365 = resultLamp24 * 365 / 1000 / 2;
   let resultECO365 = resultECO24 * 365 / 1000;
 
 

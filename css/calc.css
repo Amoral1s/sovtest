@@ -1,4 +1,10 @@
 @charset "UTF-8";
+input.dimming {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+
 .select2-results__options li:first-child {
   display: none;
   pointer-events: none !important;
